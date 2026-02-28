@@ -11,9 +11,9 @@ Mobile-first travel app for a 10-day Japan itinerary with interactive map and fo
 
 ## Deployment
 
-Deployment URL: *[To be added after first deploy]*
+**Production URL:** https://japan-trip-guide.pages.dev
 
-The app is hosted on Cloudflare Pages with automatic deployments on push to main branch.
+The app is hosted on Cloudflare Pages. Each push to main branch triggers an automatic deployment.
 
 ## Local Development
 
