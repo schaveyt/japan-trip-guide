@@ -1,0 +1,547 @@
+{
+  "trip": {
+    "id": "japan-2026-fukuoka-first",
+    "title": "Japan Graduation Trip",
+    "travelers": ["Dad (49)", "Son (18)"],
+    "duration_days": 10,
+    "start_date": "2026-05-17",
+    "route": ["Fukuoka", "Osaka", "Kyoto", "Tokyo"],
+    "days": [
+      {
+        "day_number": 1,
+        "date": "2026-05-17",
+        "title": "Travel Day - GRR to Fukuoka",
+        "cities": ["Grand Rapids", "In Transit"],
+        "travel_day": true,
+        "activities": [
+          {
+            "id": "day1-departure",
+            "time_period": "morning",
+            "type": "travel",
+            "name": "Depart Grand Rapids",
+            "description": "GRR → Detroit or Chicago connection",
+            "notes": ["Drive or connection flight", "~15-18hr total travel time"],
+            "location": null
+          },
+          {
+            "id": "day1-international-flight",
+            "time_period": "all-day",
+            "type": "travel",
+            "name": "International flight to Fukuoka",
+            "description": "Long-haul flight to FUK via Tokyo-Haneda or other hub",
+            "notes": ["Cross date line", "Arrive late evening next day"],
+            "location": null
+          }
+        ]
+      },
+      {
+        "day_number": 2,
+        "date": "2026-05-18",
+        "title": "Arrive Fukuoka",
+        "cities": ["Fukuoka"],
+        "travel_day": false,
+        "activities": [
+          {
+            "id": "day2-arrive",
+            "time_period": "evening",
+            "type": "arrival",
+            "name": "Arrive Fukuoka Airport",
+            "description": "Land at FUK, clear customs",
+            "notes": ["Jet-lagged", "Evening arrival"],
+            "location": {
+              "name": "Fukuoka Airport (FUK)",
+              "coordinates": [130.4461, 33.5859],
+              "address": "Fukuoka Airport, Fukuoka"
+            }
+          },
+          {
+            "id": "day2-checkin",
+            "time_period": "evening",
+            "type": "arrival",
+            "name": "Check into hotel near Hakata Station",
+            "description": "Drop bags at hotel in central area",
+            "notes": ["Central location", "Convenient for transit"],
+            "location": {
+              "name": "Hakata Station Area",
+              "coordinates": [130.4212, 33.5904],
+              "address": "Hakata Station, Fukuoka"
+            }
+          },
+          {
+            "id": "day2-dinner",
+            "time_period": "evening",
+            "type": "food",
+            "name": "First tonkotsu ramen",
+            "description": "Light dinner at local ramen shop near station",
+            "notes": ["Easy option: Ippudo or Shin Shin", "Keep it simple", "Early to bed after"],
+            "location": null
+          }
+        ]
+      },
+      {
+        "day_number": 3,
+        "date": "2026-05-19",
+        "title": "Fukuoka Food Day",
+        "cities": ["Fukuoka"],
+        "travel_day": false,
+        "activities": [
+          {
+            "id": "day3-morning-tenjin",
+            "time_period": "morning",
+            "type": "shopping",
+            "name": "Explore Tenjin shopping district",
+            "description": "Japan's largest underground shopping mall",
+            "notes": ["Good for stretching legs after travel"],
+            "location": {
+              "name": "Tenjin Underground City",
+              "coordinates": [130.4017, 33.5904],
+              "address": "Tenjin, Chuo Ward, Fukuoka"
+            }
+          },
+          {
+            "id": "day3-lunch-ichiran",
+            "time_period": "afternoon",
+            "type": "food",
+            "name": "Ichiran Ramen HQ",
+            "description": "Original location with iconic solo booth dining",
+            "notes": ["Customize spice level (3+ for heat)", "Order kaedama (extra noodles)"],
+            "location": {
+              "name": "Ichiran Ramen Headquarters",
+              "coordinates": [130.4084, 33.5915],
+              "address": "Near Canal City Hakata, Fukuoka"
+            }
+          },
+          {
+            "id": "day3-canal-city",
+            "time_period": "afternoon",
+            "type": "food",
+            "name": "Canal City Hakata - Ramen Stadium",
+            "description": "8 regional ramen shops on 5th floor",
+            "notes": ["Try different style (miso, shoyu)", "Browse mall between tastings"],
+            "location": {
+              "name": "Canal City Hakata",
+              "coordinates": [130.4075, 33.5898],
+              "address": "Canal City Hakata, Fukuoka"
+            }
+          },
+          {
+            "id": "day3-yatai",
+            "time_period": "evening",
+            "type": "food",
+            "name": "Yatai street food stalls",
+            "description": "Riverside food stalls in Nakasu or Tenjin area",
+            "notes": [
+              "~150 stalls open nightly from 6pm",
+              "Sit shoulder-to-shoulder with locals",
+              "Try: Hakata ramen, yakitori, oden, gyoza, mentaiko rice balls",
+              "Order beer and rotate through stalls"
+            ],
+            "location": {
+              "name": "Nakasu Yatai District",
+              "coordinates": [130.4086, 33.5945],
+              "address": "Nakasu, Hakata Ward, Fukuoka"
+            }
+          }
+        ]
+      },
+      {
+        "day_number": 4,
+        "date": "2026-05-20",
+        "title": "Fukuoka to Osaka",
+        "cities": ["Fukuoka", "Osaka"],
+        "travel_day": true,
+        "activities": [
+          {
+            "id": "day4-breakfast",
+            "time_period": "morning",
+            "type": "food",
+            "name": "Fukuoka breakfast with mentaiko",
+            "description": "Spicy marinated cod roe on rice",
+            "notes": ["Check out Hakata Station shops"],
+            "location": null
+          },
+          {
+            "id": "day4-shinkansen",
+            "time_period": "morning",
+            "type": "travel",
+            "name": "Shinkansen to Osaka",
+            "description": "High-speed rail from Shin-Hakata to Shin-Osaka",
+            "notes": ["~2.5 hours", "Grab ekiben (station bento)", "Watch Japan fly by at 180mph"],
+            "location": null
+          },
+          {
+            "id": "day4-checkin-osaka",
+            "time_period": "afternoon",
+            "type": "arrival",
+            "name": "Check into Osaka hotel",
+            "description": "Hotel in Namba area (walking distance to everything)",
+            "notes": ["Central Osaka location"],
+            "location": {
+              "name": "Namba District",
+              "coordinates": [135.5017, 34.6658],
+              "address": "Namba, Osaka"
+            }
+          },
+          {
+            "id": "day4-dotonbori",
+            "time_period": "evening",
+            "type": "food",
+            "name": "Dotonbori street food crawl",
+            "description": "Walk along famous neon-lit canal",
+            "notes": [
+              "Try: Takoyaki (octopus balls), Okonomiyaki (savory pancake), Kushikatsu (fried skewers)",
+              "NO DOUBLE DIPPING on kushikatsu!",
+              "Photo op: Glico Running Man sign"
+            ],
+            "location": {
+              "name": "Dotonbori",
+              "coordinates": [135.5023, 34.6686],
+              "address": "Dotonbori, Chuo Ward, Osaka"
+            }
+          }
+        ]
+      },
+      {
+        "day_number": 5,
+        "date": "2026-05-21",
+        "title": "Universal Studios Japan - One Piece Day",
+        "cities": ["Osaka"],
+        "travel_day": false,
+        "activities": [
+          {
+            "id": "day5-usj",
+            "time_period": "all-day",
+            "type": "sightseeing",
+            "name": "Universal Studios Japan full day",
+            "description": "Theme park day with One Piece focus",
+            "notes": [
+              "Arrive before opening",
+              "One Piece Premier Summer attractions",
+              "Sanji's Pirate Restaurant",
+              "Super Nintendo World (Mario Kart ride)",
+              "Harry Potter area if time permits",
+              "BUY EXPRESS PASS - worth every yen",
+              "Download USJ app for wait times"
+            ],
+            "location": {
+              "name": "Universal Studios Japan",
+              "coordinates": [135.4326, 34.6654],
+              "address": "Universal Studios Japan, Osaka"
+            }
+          },
+          {
+            "id": "day5-evening-rest",
+            "time_period": "evening",
+            "type": "arrival",
+            "name": "Return to hotel and rest",
+            "description": "Light dinner near hotel if hungry",
+            "notes": ["Rest up after full park day"],
+            "location": null
+          }
+        ]
+      },
+      {
+        "day_number": 6,
+        "date": "2026-05-22",
+        "title": "Osaka to Kyoto",
+        "cities": ["Osaka", "Kyoto"],
+        "travel_day": false,
+        "activities": [
+          {
+            "id": "day6-kuromon-market",
+            "time_period": "morning",
+            "type": "food",
+            "name": "Kuromon Market breakfast",
+            "description": "Osaka's Kitchen - fresh seafood stalls",
+            "notes": ["Eat as you walk: grilled seafood, tamagoyaki, fruit"],
+            "location": {
+              "name": "Kuromon Market",
+              "coordinates": [135.5064, 34.6661],
+              "address": "Kuromon Market, Chuo Ward, Osaka"
+            }
+          },
+          {
+            "id": "day6-train-kyoto",
+            "time_period": "morning",
+            "type": "travel",
+            "name": "Train to Kyoto",
+            "description": "Short train ride from Namba to Kyoto",
+            "notes": ["~15 minutes", "Check into hotel near Kyoto Station or Gion"],
+            "location": null
+          },
+          {
+            "id": "day6-fushimi-inari",
+            "time_period": "afternoon",
+            "type": "hiking",
+            "name": "Fushimi Inari Shrine hike",
+            "description": "Thousands of orange torii gates winding up mountain",
+            "notes": [
+              "2-4 hours depending on pace",
+              "Less crowded as you go higher",
+              "Small shrines and fox statues throughout"
+            ],
+            "location": {
+              "name": "Fushimi Inari Shrine",
+              "coordinates": [135.7727, 34.9671],
+              "address": "Fushimi Inari Taisha, Kyoto"
+            }
+          },
+          {
+            "id": "day6-gion",
+            "time_period": "evening",
+            "type": "sightseeing",
+            "name": "Gion district exploration",
+            "description": "Traditional geisha district",
+            "notes": ["Wander Pontocho Alley", "Find local izakaya for dinner"],
+            "location": {
+              "name": "Gion District",
+              "coordinates": [135.7751, 35.0036],
+              "address": "Gion, Higashiyama Ward, Kyoto"
+            }
+          }
+        ]
+      },
+      {
+        "day_number": 7,
+        "date": "2026-05-23",
+        "title": "Kyoto Active Day",
+        "cities": ["Kyoto"],
+        "travel_day": false,
+        "activities": [
+          {
+            "id": "day7-arashiyama",
+            "time_period": "morning",
+            "type": "hiking",
+            "name": "Arashiyama Bamboo Grove and Monkey Park",
+            "description": "GO EARLY (7am) to beat crowds - famous bamboo grove and wild monkeys",
+            "notes": [
+              "Bamboo Grove magical before 8am",
+              "Iwatayama Monkey Park: 20min uphill walk",
+              "Wild Japanese macaques at top",
+              "Great views of Kyoto"
+            ],
+            "location": {
+              "name": "Arashiyama Bamboo Grove",
+              "coordinates": [135.6722, 35.0174],
+              "address": "Arashiyama, Ukyo Ward, Kyoto"
+            }
+          },
+          {
+            "id": "day7-lunch-arashiyama",
+            "time_period": "afternoon",
+            "type": "food",
+            "name": "Lunch in Arashiyama area",
+            "description": "Local restaurants",
+            "notes": [],
+            "location": null
+          },
+          {
+            "id": "day7-bike-kyoto",
+            "time_period": "afternoon",
+            "type": "sightseeing",
+            "name": "Rent bikes and explore Kyoto",
+            "description": "Bike-friendly city exploration",
+            "notes": [
+              "Philosopher's Path (scenic cherry tree walk)",
+              "Kinkaku-ji (Golden Pavilion)",
+              "Ginkaku-ji (Silver Pavilion) if time"
+            ],
+            "location": {
+              "name": "Kinkaku-ji (Golden Pavilion)",
+              "coordinates": [135.7292, 35.0394],
+              "address": "Kinkaku-ji, Kita Ward, Kyoto"
+            }
+          },
+          {
+            "id": "day7-nishiki-market",
+            "time_period": "evening",
+            "type": "food",
+            "name": "Nishiki Market food crawl",
+            "description": "Kyoto's Kitchen - 400m covered arcade",
+            "notes": [
+              "Try: Yuba (tofu skin - Kyoto specialty)",
+              "Matcha everything (ice cream, mochi, sweets)",
+              "Pickles (tsukemono)",
+              "Grilled mochi",
+              "Fresh fish on sticks"
+            ],
+            "location": {
+              "name": "Nishiki Market",
+              "coordinates": [135.7626, 35.0050],
+              "address": "Nishiki Market, Nakagyo Ward, Kyoto"
+            }
+          }
+        ]
+      },
+      {
+        "day_number": 8,
+        "date": "2026-05-24",
+        "title": "Kyoto to Tokyo",
+        "cities": ["Kyoto", "Tokyo"],
+        "travel_day": false,
+        "activities": [
+          {
+            "id": "day8-morning-kyoto",
+            "time_period": "morning",
+            "type": "sightseeing",
+            "name": "Kyoto morning (optional)",
+            "description": "Missed spots or sleep in",
+            "notes": ["Optional: Kiyomizu-dera temple (go early if visiting)"],
+            "location": null
+          },
+          {
+            "id": "day8-shinkansen-tokyo",
+            "time_period": "afternoon",
+            "type": "travel",
+            "name": "Shinkansen to Tokyo",
+            "description": "High-speed rail from Kyoto to Tokyo",
+            "notes": ["~2 hours", "Kyoto Station → Tokyo Station"],
+            "location": null
+          },
+          {
+            "id": "day8-akihabara",
+            "time_period": "afternoon",
+            "type": "shopping",
+            "name": "Akihabara anime shopping",
+            "description": "Electronics and anime district",
+            "notes": [
+              "Mandarake Complex (8 floors)",
+              "Animate flagship store",
+              "One Punch Man / One Piece merchandise",
+              "Hit the arcades (SEGA, Taito Station)"
+            ],
+            "location": {
+              "name": "Akihabara Electric Town",
+              "coordinates": [139.7737, 35.6984],
+              "address": "Akihabara, Chiyoda, Tokyo"
+            }
+          },
+          {
+            "id": "day8-ikebukuro-ramen",
+            "time_period": "evening",
+            "type": "food",
+            "name": "Ikebukuro ramen",
+            "description": "Ramen Street area",
+            "notes": [
+              "Mutekiya (expect lines, worth it)",
+              "Or try spicy: Kikanbo or Karashibi Miso Ramen"
+            ],
+            "location": {
+              "name": "Ikebukuro Ramen Street",
+              "coordinates": [139.7105, 35.7295],
+              "address": "Ikebukuro, Toshima, Tokyo"
+            }
+          }
+        ]
+      },
+      {
+        "day_number": 9,
+        "date": "2026-05-25",
+        "title": "Tokyo Final Day",
+        "cities": ["Tokyo"],
+        "travel_day": false,
+        "activities": [
+          {
+            "id": "day9-morning-pokemon",
+            "time_period": "morning",
+            "type": "shopping",
+            "name": "Pokemon Center MEGA Tokyo",
+            "description": "Flagship Pokemon store in Ikebukuro",
+            "notes": ["Opens 10am, arrive early", "Pokemon Cafe if booked"],
+            "location": {
+              "name": "Pokemon Center MEGA Tokyo",
+              "coordinates": [139.7104, 35.7295],
+              "address": "Ikebukuro, Toshima, Tokyo"
+            }
+          },
+          {
+            "id": "day9-meiji-shrine",
+            "time_period": "afternoon",
+            "type": "sightseeing",
+            "name": "Meiji Shrine",
+            "description": "Peaceful forested shrine",
+            "notes": ["Large shrine in wooded park"],
+            "location": {
+              "name": "Meiji Shrine",
+              "coordinates": [139.6993, 35.6764],
+              "address": "Meiji Jingu, Shibuya, Tokyo"
+            }
+          },
+          {
+            "id": "day9-harajuku",
+            "time_period": "afternoon",
+            "type": "shopping",
+            "name": "Harajuku exploration",
+            "description": "Youth culture and street fashion district",
+            "notes": [
+              "Takeshita Street (crepes, street food)",
+              "Side streets for shopping"
+            ],
+            "location": {
+              "name": "Harajuku / Takeshita Street",
+              "coordinates": [139.7027, 35.6706],
+              "address": "Harajuku, Shibuya, Tokyo"
+            }
+          },
+          {
+            "id": "day9-final-dinner",
+            "time_period": "evening",
+            "type": "food",
+            "name": "Final dinner in Tokyo",
+            "description": "Go big or go home",
+            "notes": [
+              "Options: Spicy ramen round 2 (Nakiryu tantanmen, Kikanbo)",
+              "Or: favorite street food area revisit",
+              "Or: sushi omakase if budget allows"
+            ],
+            "location": null
+          }
+        ]
+      },
+      {
+        "day_number": 10,
+        "date": "2026-05-26",
+        "title": "Departure Day",
+        "cities": ["Tokyo"],
+        "travel_day": true,
+        "activities": [
+          {
+            "id": "day10-tsukiji",
+            "time_period": "morning",
+            "type": "food",
+            "name": "Tsukiji Outer Market breakfast",
+            "description": "Fresh sushi and street food for classic Tokyo send-off",
+            "notes": ["Fresh sushi, tamagoyaki, street food", "Last-minute shopping if needed"],
+            "location": {
+              "name": "Tsukiji Outer Market",
+              "coordinates": [139.7707, 35.6654],
+              "address": "Tsukiji, Chuo, Tokyo"
+            }
+          },
+          {
+            "id": "day10-airport",
+            "time_period": "afternoon",
+            "type": "travel",
+            "name": "Head to airport",
+            "description": "Narita or Haneda departure",
+            "notes": ["Budget 2-3hrs before international flight"],
+            "location": {
+              "name": "Tokyo Narita/Haneda Airport",
+              "coordinates": [139.7805, 35.5494],
+              "address": "Tokyo area airports"
+            }
+          },
+          {
+            "id": "day10-departure",
+            "time_period": "afternoon",
+            "type": "travel",
+            "name": "Flight home",
+            "description": "International departure to USA",
+            "notes": ["Arrive same day due to time zones"],
+            "location": null
+          }
+        ]
+      }
+    ]
+  }
+}
