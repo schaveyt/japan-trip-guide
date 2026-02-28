@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import HeroImage from '../components/HeroImage'
 import { ReadingContainer } from '../components/Layout'
 import itinerary from '../data/itinerary.json'
@@ -74,6 +75,20 @@ export default function Home() {
               </li>
             ))}
           </ul>
+        </section>
+
+        {/* Map CTA */}
+        <section className="mb-12">
+          <Link
+            to="/map"
+            className="flex items-center justify-between px-5 py-4 border border-ink/20 hover:border-ink/60 transition-colors group"
+          >
+            <div>
+              <p className="font-display font-bold text-ink text-lg">Explore the Map</p>
+              <p className="text-muted text-sm mt-0.5">{trip.days.reduce((sum, day) => sum + day.activities.length, 0)} locations · filter by day</p>
+            </div>
+            <span className="text-ink/40 group-hover:text-ink transition-colors text-xl">→</span>
+          </Link>
         </section>
 
         {/* Food guide teaser */}
