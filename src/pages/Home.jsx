@@ -51,13 +51,13 @@ export default function Home() {
           </p>
         </section>
 
-        {/* Itinerary list */}
+        {/* Itinerary teaser — first 3 days + CTA */}
         <section className="mb-12">
           <h2 className="font-display text-subhead font-bold text-ink mb-6">
             Itinerary
           </h2>
-          <ul className="space-y-3">
-            {trip.days.map(day => (
+          <ul className="space-y-3 mb-6">
+            {trip.days.slice(0, 3).map(day => (
               <li
                 key={day.day_number}
                 className="flex items-baseline gap-4 py-3 border-b border-ink/10 last:border-0"
@@ -66,15 +66,24 @@ export default function Home() {
                   Day {day.day_number}
                 </span>
                 <span className="text-ink font-medium">{day.title}</span>
-                <span className="text-muted text-sm ml-auto shrink-0">{day.date}</span>
                 {day.travel_day && (
-                  <span className="text-xs uppercase tracking-wider text-torii ml-2 shrink-0">
+                  <span className="text-xs uppercase tracking-wider text-torii ml-auto shrink-0">
                     Travel
                   </span>
                 )}
               </li>
             ))}
           </ul>
+          <Link
+            to="/itinerary"
+            className="flex items-center justify-between px-5 py-4 border border-ink/20 hover:border-ink/60 transition-colors group"
+          >
+            <div>
+              <p className="font-display font-bold text-ink text-lg">View Full Itinerary</p>
+              <p className="text-muted text-sm mt-0.5">All {trip.days.length} days · tap to explore each day</p>
+            </div>
+            <span className="text-ink/40 group-hover:text-ink transition-colors text-xl">→</span>
+          </Link>
         </section>
 
         {/* Map CTA */}
@@ -99,9 +108,19 @@ export default function Home() {
           <p className="text-ink leading-relaxed">
             {foodGuide.cities.length} cities covered with restaurant recommendations.
           </p>
-          <p className="text-muted mt-1">
+          <p className="text-muted mt-1 mb-4">
             First stop: <em className="text-ink">{firstRestaurant}</em> in {foodGuide.cities[0].name}
           </p>
+          <Link
+            to="/food"
+            className="flex items-center justify-between px-5 py-4 border border-ink/20 hover:border-ink/60 transition-colors group"
+          >
+            <div>
+              <p className="font-display font-bold text-ink text-lg">Explore Food Guide</p>
+              <p className="text-muted text-sm mt-0.5">{foodGuide.cities.reduce((sum, c) => sum + c.restaurants.length, 0)} restaurants · {foodGuide.cities.length} cities</p>
+            </div>
+            <span className="text-ink/40 group-hover:text-ink transition-colors text-xl">→</span>
+          </Link>
         </section>
 
         {/* Footer */}
