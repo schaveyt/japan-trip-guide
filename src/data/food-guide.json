@@ -1,0 +1,433 @@
+{
+  "cities": [
+    {
+      "name": "Fukuoka",
+      "restaurants": [
+        {
+          "id": "fukuoka-ichiran",
+          "name": "Ichiran Ramen HQ",
+          "type": "ramen",
+          "what_to_order": "Classic tonkotsu with spice level 3-4, order kaedama (extra noodles)",
+          "notes": [
+            "Original/HQ location near Canal City Hakata",
+            "Solo booth dining with customization sheet",
+            "Ask for kata (firm) noodles for traditional Hakata style",
+            "24 hours at many locations"
+          ],
+          "location": null
+        },
+        {
+          "id": "fukuoka-shin-shin",
+          "name": "Shin Shin",
+          "type": "ramen",
+          "what_to_order": "Rich, creamy tonkotsu",
+          "notes": [
+            "Near Hakata Station",
+            "Less touristy than Ichiran",
+            "Local favorite"
+          ],
+          "location": null
+        },
+        {
+          "id": "fukuoka-ippudo",
+          "name": "Ippudo",
+          "type": "ramen",
+          "what_to_order": "Refined tonkotsu",
+          "notes": [
+            "Originated in Fukuoka",
+            "Multiple locations including Hakata Station",
+            "Great for first-timers"
+          ],
+          "location": null
+        },
+        {
+          "id": "fukuoka-ganso-nagahamaya",
+          "name": "Ganso Nagahamaya",
+          "type": "ramen",
+          "what_to_order": "Ultra-thin noodles with pure pork bone flavor",
+          "notes": [
+            "The Original",
+            "Nagahama area",
+            "Old school, no frills"
+          ],
+          "location": null
+        },
+        {
+          "id": "fukuoka-ramen-stadium",
+          "name": "Ramen Stadium",
+          "type": "ramen",
+          "what_to_order": "Try miso ramen from Hokkaido or shoyu from Tokyo to compare styles",
+          "notes": [
+            "Canal City Hakata, 5th floor",
+            "8 different regional ramen shops in one spot",
+            "Good afternoon activity before yatai open"
+          ],
+          "location": null
+        },
+        {
+          "id": "fukuoka-yatai-nakasu",
+          "name": "Nakasu Yatai Stalls",
+          "type": "street-food",
+          "what_to_order": "Hakata ramen, yakitori, gyoza, oden, mentaiko onigiri",
+          "notes": [
+            "Along Naka River, most famous yatai area",
+            "~150 yatai operate nightly 6pm-2am",
+            "Sit shoulder-to-shoulder with locals",
+            "Order beer and rotate through stalls",
+            "Cover charge ~500 yen, cash only",
+            "Core Japan experience!"
+          ],
+          "location": null
+        },
+        {
+          "id": "fukuoka-mentaiko",
+          "name": "Mentaiko (Spicy Cod Roe)",
+          "type": "specialty",
+          "what_to_order": "On rice, in onigiri, or on pasta",
+          "notes": [
+            "Fukuoka's signature spicy food",
+            "Marinated pollock/cod roe with chili",
+            "Hakata Station has many mentaiko shops for gifts"
+          ],
+          "location": null
+        },
+        {
+          "id": "fukuoka-motsunabe",
+          "name": "Motsunabe",
+          "type": "hot-pot",
+          "what_to_order": "Beef/pork intestines in miso or soy broth",
+          "notes": [
+            "Often comes with nira (garlic chives) and cabbage",
+            "Great for two people to share",
+            "Sounds weird, tastes incredible"
+          ],
+          "location": null
+        }
+      ]
+    },
+    {
+      "name": "Osaka",
+      "restaurants": [
+        {
+          "id": "osaka-takoyaki-creo-ru",
+          "name": "Creo-Ru Takoyaki",
+          "type": "takoyaki",
+          "what_to_order": "Classic takoyaki (octopus balls)",
+          "notes": [
+            "One of the originals",
+            "Crispy outside, gooey inside",
+            "Let them cool - inside is molten lava!"
+          ],
+          "location": null
+        },
+        {
+          "id": "osaka-takoyaki-kukuru",
+          "name": "Takoya Dotonbori Kukuru",
+          "type": "takoyaki",
+          "what_to_order": "Takoyaki with sauce, mayo, bonito flakes",
+          "notes": [
+            "Tourist favorite, good quality",
+            "Along Dotonbori canal"
+          ],
+          "location": null
+        },
+        {
+          "id": "osaka-takoyaki-wanaka",
+          "name": "Wanaka",
+          "type": "takoyaki",
+          "what_to_order": "Classic takoyaki",
+          "notes": [
+            "Local favorite",
+            "Less touristy"
+          ],
+          "location": null
+        },
+        {
+          "id": "osaka-okonomiyaki-mizuno",
+          "name": "Mizuno",
+          "type": "okonomiyaki",
+          "what_to_order": "Pork + shrimp + cheese okonomiyaki",
+          "notes": [
+            "Institution since 1945",
+            "Expect long lines",
+            "Osaka style: everything mixed together"
+          ],
+          "location": null
+        },
+        {
+          "id": "osaka-okonomiyaki-fukutaro",
+          "name": "Fukutaro",
+          "type": "okonomiyaki",
+          "what_to_order": "Traditional okonomiyaki",
+          "notes": [
+            "No frills, authentic",
+            "DIY tableside griddle experience"
+          ],
+          "location": null
+        },
+        {
+          "id": "osaka-okonomiyaki-chibo",
+          "name": "Chibo",
+          "type": "okonomiyaki",
+          "what_to_order": "Customizable okonomiyaki",
+          "notes": [
+            "Tourist-friendly",
+            "English menu available"
+          ],
+          "location": null
+        },
+        {
+          "id": "osaka-kushikatsu-daruma",
+          "name": "Daruma",
+          "type": "kushikatsu",
+          "what_to_order": "Various deep-fried skewers (meat, seafood, vegetables)",
+          "notes": [
+            "Original kushikatsu spot in Shinsekai",
+            "IMPORTANT: NO DOUBLE DIPPING in communal sauce!",
+            "Try everything including adventurous options"
+          ],
+          "location": null
+        },
+        {
+          "id": "osaka-kuromon-market",
+          "name": "Kuromon Market",
+          "type": "market",
+          "what_to_order": "Fresh sashimi, grilled seafood, tamagoyaki on stick, fresh fruit",
+          "notes": [
+            "Osaka's Kitchen",
+            "Near Namba, 15 min walk from Dotonbori",
+            "Best for breakfast/lunch 9am-5pm",
+            "Eat at counter, adventurous option: fugu (blowfish)"
+          ],
+          "location": null
+        },
+        {
+          "id": "osaka-dotonbori",
+          "name": "Dotonbori Street Food Area",
+          "type": "street-food",
+          "what_to_order": "Takoyaki, okonomiyaki, kushikatsu crawl",
+          "notes": [
+            "Famous neon-lit canal",
+            "Best time: evening (6pm onwards)",
+            "Photo op: Glico Running Man sign",
+            "Kuidaore - eating until you drop!"
+          ],
+          "location": null
+        }
+      ]
+    },
+    {
+      "name": "Kyoto",
+      "restaurants": [
+        {
+          "id": "kyoto-nishiki-market",
+          "name": "Nishiki Market",
+          "type": "market",
+          "what_to_order": "Yuba (tofu skin), matcha desserts, tsukemono (pickles), grilled mochi, tako tamago",
+          "notes": [
+            "Kyoto's Kitchen",
+            "400m covered shopping arcade",
+            "9am-5pm, best mid-morning to early afternoon",
+            "Eat while standing (not walking) - etiquette",
+            "Free samples at many stalls",
+            "Cash only at most stalls"
+          ],
+          "location": null
+        },
+        {
+          "id": "kyoto-pontocho-alley",
+          "name": "Pontocho Alley",
+          "type": "dining-district",
+          "what_to_order": "Izakaya dinner, riverside seating if available",
+          "notes": [
+            "Narrow alley parallel to Kamo River",
+            "Atmospheric, traditional, lantern-lit at night",
+            "Mix of high-end and casual izakayas",
+            "Best for evening stroll + dinner"
+          ],
+          "location": null
+        },
+        {
+          "id": "kyoto-gion-tsujiri",
+          "name": "Gion Tsujiri",
+          "type": "cafe",
+          "what_to_order": "Matcha parfait",
+          "notes": [
+            "Traditional geisha district location",
+            "Tea house and traditional sweets"
+          ],
+          "location": null
+        },
+        {
+          "id": "kyoto-fushimi-inari-snacks",
+          "name": "Fushimi Inari Approach Stalls",
+          "type": "street-food",
+          "what_to_order": "Inari sushi, sweet potato treats, soft serve ice cream",
+          "notes": [
+            "Street snacks along walk to shrine",
+            "Adventurous option: grilled sparrow"
+          ],
+          "location": null
+        },
+        {
+          "id": "kyoto-arashiyama-yudofu",
+          "name": "Arashiyama Yudofu",
+          "type": "specialty",
+          "what_to_order": "Tofu hot pot (yudofu)",
+          "notes": [
+            "Arashiyama specialty",
+            "Also try: warabi mochi, matcha soft serve"
+          ],
+          "location": null
+        },
+        {
+          "id": "kyoto-arabica-coffee",
+          "name": "% Arabica Coffee",
+          "type": "cafe",
+          "what_to_order": "Specialty coffee",
+          "notes": [
+            "Famous coffee shop by the river in Arashiyama",
+            "Scenic location"
+          ],
+          "location": null
+        }
+      ]
+    },
+    {
+      "name": "Tokyo",
+      "restaurants": [
+        {
+          "id": "tokyo-mutekiya",
+          "name": "Mutekiya",
+          "type": "ramen",
+          "what_to_order": "Rich tonkotsu ramen",
+          "notes": [
+            "Ikebukuro Ramen Street area",
+            "Expect lines, worth the wait"
+          ],
+          "location": null
+        },
+        {
+          "id": "tokyo-fuunji",
+          "name": "Fuunji",
+          "type": "ramen",
+          "what_to_order": "Tsukemen (dipping noodles)",
+          "notes": [
+            "Top tsukemen specialist",
+            "Locations in Ikebukuro and Shinjuku"
+          ],
+          "location": null
+        },
+        {
+          "id": "tokyo-nagi",
+          "name": "Nagi",
+          "type": "ramen",
+          "what_to_order": "Niboshi (dried sardine) ramen",
+          "notes": [
+            "Shinjuku area",
+            "Intense flavor"
+          ],
+          "location": null
+        },
+        {
+          "id": "tokyo-nakiryu",
+          "name": "Nakiryu",
+          "type": "ramen",
+          "what_to_order": "Tantanmen (spicy sesame ramen)",
+          "notes": [
+            "Michelin-starred",
+            "Otsuka location",
+            "Best spicy ramen in Tokyo"
+          ],
+          "location": null
+        },
+        {
+          "id": "tokyo-kikanbo",
+          "name": "Kikanbo",
+          "type": "ramen",
+          "what_to_order": "Mala spicy ramen with Sichuan peppercorn",
+          "notes": [
+            "Near Tokyo Station",
+            "Intense spice level",
+            "Also: Karashibi Miso Ramen variant"
+          ],
+          "location": null
+        },
+        {
+          "id": "tokyo-tsukiji-market",
+          "name": "Tsukiji Outer Market",
+          "type": "market",
+          "what_to_order": "Sushi breakfast at counter, tamagoyaki on stick, grilled seafood",
+          "notes": [
+            "Old fish market area",
+            "Best 7am-11am, many close by 2pm",
+            "Classic Tokyo breakfast experience",
+            "Also try: fresh fruit"
+          ],
+          "location": null
+        },
+        {
+          "id": "tokyo-marion-crepes",
+          "name": "Marion Crepes",
+          "type": "street-food",
+          "what_to_order": "Sweet crepes",
+          "notes": [
+            "Harajuku / Takeshita Street",
+            "Classic youth culture food",
+            "Also: rainbow cotton candy"
+          ],
+          "location": null
+        },
+        {
+          "id": "tokyo-omoide-yokocho",
+          "name": "Omoide Yokocho",
+          "type": "dining-district",
+          "what_to_order": "Yakitori skewers and drinks",
+          "notes": [
+            "Shinjuku 'Piss Alley'",
+            "Narrow alleys of tiny yakitori joints",
+            "Smoke-filled, atmospheric",
+            "Best for late night",
+            "Cash only"
+          ],
+          "location": null
+        },
+        {
+          "id": "tokyo-gyukatsu-motomura",
+          "name": "Gyukatsu Motomura",
+          "type": "specialty",
+          "what_to_order": "Beef cutlet served rare",
+          "notes": [
+            "Like tonkatsu but with beef",
+            "Worth the line"
+          ],
+          "location": null
+        },
+        {
+          "id": "tokyo-convenience-stores",
+          "name": "Convenience Stores (7-Eleven, Lawson, FamilyMart)",
+          "type": "convenience",
+          "what_to_order": "Onigiri, egg sandwiches, fried chicken",
+          "notes": [
+            "Seriously good in Japan",
+            "Cheap, available 24/7",
+            "Must-try experience"
+          ],
+          "location": null
+        },
+        {
+          "id": "tokyo-pokemon-center",
+          "name": "Pokemon Center MEGA Tokyo",
+          "type": "specialty",
+          "what_to_order": "Pokemon Cafe if booked",
+          "notes": [
+            "Ikebukuro location",
+            "Opens 10am, arrive early",
+            "Cafe requires advance booking"
+          ],
+          "location": null
+        }
+      ]
+    }
+  ]
+}
