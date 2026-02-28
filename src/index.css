@@ -1,68 +1,67 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+/* 1. Google Fonts — MUST come before @import "tailwindcss" (CSS @import ordering rule) */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Roboto:wght@400;500&display=swap");
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+/* 2. Tailwind CSS v4 */
+@import "tailwindcss";
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+/* 3. Editorial design tokens */
+@theme {
+  /* Typography */
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Roboto", system-ui, sans-serif;
+
+  /* Color palette: wabi-sabi editorial */
+  --color-ink: #1A1A1A;
+  --color-paper: #F8F7F4;
+  --color-muted: #8B8680;
+  --color-torii: #C73E3A;
+  --color-link: #2B4C7E;
+
+  /* Type scale — editorial headline scale */
+  --text-hero: 4.375rem;
+  --text-hero--line-height: 1.1;
+
+  --text-headline: 3rem;
+  --text-headline--line-height: 1.2;
+
+  --text-subhead: 2rem;
+  --text-subhead--line-height: 1.3;
+
+  --text-intro: 1.5rem;
+  --text-intro--line-height: 1.4;
+
+  /* Content width constraints */
+  --max-w-reading: 45rem;
+  --max-w-wide: 65rem;
+  --max-w-container: 80rem;
+
+  /* Spacing scale (generous/editorial) */
+  --space-section: 5rem;
+  --space-component: 4rem;
+  --space-element: 2.5rem;
+}
+
+/* 4. Base styles — applied globally */
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-size: 1rem;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: var(--color-link);
+  text-decoration: none;
 }
+
 a:hover {
-  color: #535bf2;
+  text-decoration: underline;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+#root {
   min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
