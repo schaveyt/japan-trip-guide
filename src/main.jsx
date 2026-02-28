@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import './index.css'
+import 'leaflet/dist/leaflet.css'
 import Home from './pages/Home.jsx'
 import ErrorPage from './pages/ErrorPage.jsx'
 
