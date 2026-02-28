@@ -1,0 +1,136 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Japan Trip Itinerary Schema",
+  "description": "Data structure for 10-day Japan trip with activities, locations, and food guide",
+  "type": "object",
+  "required": ["trip"],
+  "properties": {
+    "trip": {
+      "type": "object",
+      "required": ["id", "title", "days"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the trip"
+        },
+        "title": {
+          "type": "string",
+          "description": "Display title for the trip"
+        },
+        "travelers": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "List of travelers with ages"
+        },
+        "duration_days": {
+          "type": "number",
+          "description": "Total number of days in the trip"
+        },
+        "start_date": {
+          "type": "string",
+          "format": "date",
+          "description": "Trip start date in ISO format (YYYY-MM-DD)"
+        },
+        "route": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Cities visited in order"
+        },
+        "days": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["day_number", "date", "activities"],
+            "properties": {
+              "day_number": {
+                "type": "number",
+                "description": "Day number (1-based index)"
+              },
+              "date": {
+                "type": "string",
+                "format": "date",
+                "description": "Date in ISO format (YYYY-MM-DD)"
+              },
+              "title": {
+                "type": "string",
+                "description": "Display title for the day"
+              },
+              "cities": {
+                "type": "array",
+                "items": {"type": "string"},
+                "description": "Cities visited on this day"
+              },
+              "travel_day": {
+                "type": "boolean",
+                "description": "True if primarily a travel day"
+              },
+              "activities": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["id", "time_period", "type", "name"],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier for the activity"
+                    },
+                    "time_period": {
+                      "type": "string",
+                      "enum": ["morning", "afternoon", "evening", "all-day"],
+                      "description": "When the activity occurs"
+                    },
+                    "type": {
+                      "type": "string",
+                      "enum": ["travel", "food", "sightseeing", "shopping", "hiking", "arrival"],
+                      "description": "Activity category for filtering"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Activity name"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "Detailed description of the activity"
+                    },
+                    "notes": {
+                      "type": "array",
+                      "items": {"type": "string"},
+                      "description": "Additional notes or tips"
+                    },
+                    "location": {
+                      "oneOf": [
+                        {"type": "null"},
+                        {
+                          "type": "object",
+                          "required": ["name", "coordinates"],
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "Location name"
+                            },
+                            "coordinates": {
+                              "type": "array",
+                              "items": {"type": "number"},
+                              "minItems": 2,
+                              "maxItems": 2,
+                              "description": "GeoJSON format: [longitude, latitude] - NOTE: longitude first! Common mistake is to use [latitude, longitude]."
+                            },
+                            "address": {
+                              "type": "string",
+                              "description": "Full address"
+                            }
+                          }
+                        }
+                      ],
+                      "description": "Location details if applicable, or null for activities without specific venues"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
