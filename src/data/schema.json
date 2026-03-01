@@ -1,10 +1,119 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Japan Trip Itinerary Schema",
-  "description": "Data structure for 10-day Japan trip with activities, locations, and food guide",
+  "title": "Japan Trip Guide Data Schema",
+  "description": "Data structure for the Japan Trip Guide app. Documents itinerary.json (trip data) and activities.json (outdoor and anime/pop culture activities). Coordinates use GeoJSON format: [longitude, latitude].",
   "type": "object",
   "required": ["trip"],
   "properties": {
+    "activities": {
+      "type": "object",
+      "description": "Activities data structure (activities.json). Contains outdoor and anime/pop culture activities organized by trip day. Activity IDs use the 'act-' prefix to prevent collision with itinerary.json activity IDs.",
+      "required": ["activities"],
+      "properties": {
+        "activities": {
+          "type": "object",
+          "required": ["days"],
+          "properties": {
+            "days": {
+              "type": "array",
+              "description": "Array of day objects, each containing activities for that day. Only days with activities are included.",
+              "items": {
+                "type": "object",
+                "required": ["day_number", "date", "city", "title", "entries"],
+                "properties": {
+                  "day_number": {
+                    "type": "integer",
+                    "description": "Day number matching itinerary.json day_number"
+                  },
+                  "date": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Date in ISO format (YYYY-MM-DD)"
+                  },
+                  "city": {
+                    "type": "string",
+                    "description": "Primary city for this day"
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "Day title matching itinerary.json day title"
+                  },
+                  "entries": {
+                    "type": "array",
+                    "description": "Activity entries for this day",
+                    "items": {
+                      "type": "object",
+                      "required": ["id", "category", "type", "name", "description", "notes", "booking_required", "booking_note", "location"],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "pattern": "^act-",
+                          "description": "Unique identifier with 'act-' prefix (e.g., 'act-day7-fushimi-inari'). The act- prefix prevents key collision with itinerary.json activity IDs."
+                        },
+                        "category": {
+                          "type": "string",
+                          "enum": ["Outdoor", "Anime & Pop Culture"],
+                          "description": "Top-level activity category"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Sub-type within category. Outdoor types: Hiking, Biking, Water. Anime & Pop Culture types: Pokemon, One Piece, Akihabara."
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Display name of the activity"
+                        },
+                        "description": {
+                          "type": "string",
+                          "description": "Detailed description of the activity"
+                        },
+                        "notes": {
+                          "type": "array",
+                          "items": {"type": "string"},
+                          "description": "Practical tips and notes (2-4 per entry)"
+                        },
+                        "booking_required": {
+                          "type": "boolean",
+                          "description": "Whether advance booking is required"
+                        },
+                        "booking_note": {
+                          "oneOf": [
+                            {"type": "string"},
+                            {"type": "null"}
+                          ],
+                          "description": "Human-readable booking guidance when booking_required is true, null otherwise"
+                        },
+                        "location": {
+                          "type": "object",
+                          "required": ["name", "coordinates", "address"],
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "description": "Location name"
+                            },
+                            "coordinates": {
+                              "type": "array",
+                              "items": {"type": "number"},
+                              "minItems": 2,
+                              "maxItems": 2,
+                              "description": "GeoJSON format: [longitude, latitude] — same convention as itinerary.json. Longitude first!"
+                            },
+                            "address": {
+                              "type": "string",
+                              "description": "Full address"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "trip": {
       "type": "object",
       "required": ["id", "title", "days"],
