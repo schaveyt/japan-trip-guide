@@ -1,6 +1,7 @@
 import itinerary from '../data/itinerary.json'
 import { ReadingContainer } from '../components/Layout'
 import { Link } from 'react-router'
+import activitiesData from '../data/activities.json'
 
 const { trip } = itinerary
 
@@ -138,6 +139,10 @@ function InTripState({ day }) {
   const whatsNextPeriod = getWhatsNextPeriod(day.activities, currentPeriod)
   const allPast = whatsNextPeriod === null
 
+  const todayActivities = activitiesData.activities.days.find(
+    d => d.day_number === day.day_number
+  )?.entries ?? []
+
   // Group activities by time period (preserving order)
   const periodOrder = ['morning', 'afternoon', 'evening', 'all-day']
   const grouped = periodOrder
@@ -181,6 +186,37 @@ function InTripState({ day }) {
                 )}
               </div>
             ))}
+        </div>
+      )}
+
+      {/* Optional activities from activities.json */}
+      {!day.travel_day && todayActivities.length > 0 && (
+        <div className="mb-8">
+          <p className="text-xs uppercase tracking-widest text-muted mb-3 border-b border-ink/10 pb-2">
+            Optional Activities Today
+          </p>
+          <ul className="space-y-3">
+            {todayActivities.map(a => (
+              <li key={a.id} className="py-1">
+                <p className="text-ink font-medium text-sm">{a.name}</p>
+                {a.description && (
+                  <p className="text-muted text-xs mt-0.5 leading-relaxed">{a.description}</p>
+                )}
+                {a.booking_required && (
+                  <p className="text-torii text-xs mt-1 uppercase tracking-wider">
+                    Book ahead — {a.booking_note}
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+          <Link
+            to="/activities"
+            state={{ dayNumber: day.day_number }}
+            className="text-sm text-link hover:text-ink transition-colors mt-4 block"
+          >
+            See all activities for Day {day.day_number} →
+          </Link>
         </div>
       )}
 
