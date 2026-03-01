@@ -3,6 +3,7 @@ import { useLocation, Link } from 'react-router'
 import TripMap from '../components/map/TripMap'
 import DayFilterBar from '../components/map/DayFilterBar'
 import itinerary from '../data/itinerary.json'
+import activitiesData from '../data/activities.json'
 
 export default function MapPage() {
   const { trip } = itinerary
@@ -26,6 +27,11 @@ export default function MapPage() {
     })
   }
 
+  const allActivityEntries = activitiesData.activities.days.flatMap(d =>
+    d.entries.filter(e => e.location)
+  )
+  const [showActivities, setShowActivities] = useState(true)
+
   return (
     <div className="flex flex-col h-[calc(100vh-4rem)] bg-paper">
       <header className="px-5 py-3 border-b border-ink/10 flex items-center gap-4">
@@ -41,8 +47,26 @@ export default function MapPage() {
         visibleDays={visibleDays}
         onToggle={toggleDay}
       />
+      <div className="px-4 py-2 border-b border-ink/10 flex items-center gap-3">
+        <span className="text-xs uppercase tracking-wider text-muted">Activities</span>
+        <button
+          onClick={() => setShowActivities(prev => !prev)}
+          className={`px-3 py-1.5 text-xs uppercase tracking-wider font-medium rounded-sm transition-colors ${
+            showActivities
+              ? 'bg-ink text-paper'
+              : 'bg-transparent text-muted border border-ink/20'
+          }`}
+        >
+          {showActivities ? 'Visible' : 'Hidden'}
+        </button>
+      </div>
       <div className="flex-1">
-        <TripMap days={trip.days} visibleDays={visibleDays} />
+        <TripMap
+          days={trip.days}
+          visibleDays={visibleDays}
+          activityEntries={allActivityEntries}
+          showActivities={showActivities}
+        />
       </div>
     </div>
   )
