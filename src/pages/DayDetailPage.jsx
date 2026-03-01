@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router'
 import itinerary from '../data/itinerary.json'
 import { ReadingContainer } from '../components/Layout'
+import activitiesData from '../data/activities.json'
 
 const TIME_PERIOD_LABELS = {
   morning: 'Morning',
@@ -13,6 +14,9 @@ export default function DayDetailPage() {
   const { dayNumber } = useParams()
   const { trip } = itinerary
   const day = trip.days.find(d => d.day_number === Number(dayNumber))
+  const dayHasActivities = activitiesData.activities.days.some(
+    d => d.day_number === day?.day_number
+  )
 
   if (!day) {
     return (
@@ -66,6 +70,17 @@ export default function DayDetailPage() {
           <span className="text-ink">View Day {day.day_number} on map</span>
           <span className="text-ink/40 group-hover:text-ink transition-colors">→</span>
         </Link>
+
+        {dayHasActivities && (
+          <Link
+            to="/activities"
+            state={{ dayNumber: day.day_number }}
+            className="flex items-center justify-between px-4 py-3 border border-ink/20 hover:border-ink/60 transition-colors group mb-8 text-sm"
+          >
+            <span className="text-ink">See activities for Day {day.day_number}</span>
+            <span className="text-ink/40 group-hover:text-ink transition-colors">→</span>
+          </Link>
+        )}
 
         {/* Activity groups by time period */}
         {activityGroups.map(group => (
