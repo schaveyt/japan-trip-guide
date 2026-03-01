@@ -35,6 +35,16 @@ function createDayIcon(dayNum) {
   })
 }
 
+function createActivityIcon() {
+  return divIcon({
+    html: `<div style="width:10px;height:10px;border-radius:2px;background:#C73E3A;border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.5)"></div>`,
+    className: '',
+    iconSize: [10, 10],
+    iconAnchor: [5, 5],
+    popupAnchor: [0, -7],
+  })
+}
+
 // Child component: fits map bounds to all visible locations on mount
 function BoundsFitter({ coordinates }) {
   const map = useMap()
@@ -45,7 +55,7 @@ function BoundsFitter({ coordinates }) {
   return null
 }
 
-export default function TripMap({ days, visibleDays }) {
+export default function TripMap({ days, visibleDays, activityEntries = [], showActivities = false }) {
   const daysWithLocations = days.filter(d =>
     d.activities.some(a => a.location)
   )
@@ -96,6 +106,33 @@ export default function TripMap({ days, visibleDays }) {
               ))}
           </LayerGroup>
         )
+      )}
+      {showActivities && activityEntries.length > 0 && (
+        <LayerGroup key="activities">
+          {activityEntries.map(entry => (
+            <Marker
+              key={entry.id}
+              position={toLeaflet(entry.location.coordinates)}
+              icon={createActivityIcon()}
+            >
+              <Popup>
+                <strong>{entry.name}</strong>
+                <br />
+                <span style={{ color: '#8B8680', fontSize: '0.875rem' }}>
+                  {entry.location.name}
+                </span>
+                {entry.location.address && (
+                  <>
+                    <br />
+                    <span style={{ color: '#8B8680', fontSize: '0.75rem' }}>
+                      {entry.location.address}
+                    </span>
+                  </>
+                )}
+              </Popup>
+            </Marker>
+          ))}
+        </LayerGroup>
       )}
     </MapContainer>
   )
