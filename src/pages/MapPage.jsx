@@ -27,7 +27,7 @@ export default function MapPage() {
   }
 
   return (
-    <div className="flex flex-col h-screen bg-paper">
+    <div className="flex flex-col h-[calc(100vh-4rem)] bg-paper">
       <header className="px-5 py-3 border-b border-ink/10 flex items-center gap-4">
         <Link to="/" className="text-muted text-sm hover:text-ink transition-colors">
           ← Home

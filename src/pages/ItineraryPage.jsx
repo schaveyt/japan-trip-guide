@@ -6,7 +6,7 @@ export default function ItineraryPage() {
   const { trip } = itinerary
 
   return (
-    <div className="bg-paper min-h-screen font-body">
+    <div className="bg-paper min-h-screen font-body pb-20">
       <header className="px-5 py-3 border-b border-ink/10 flex items-center gap-4">
         <Link to="/" className="text-muted text-sm hover:text-ink transition-colors">
           ← Home

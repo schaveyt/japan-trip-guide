@@ -16,7 +16,7 @@ export default function DayDetailPage() {
 
   if (!day) {
     return (
-      <div className="bg-paper min-h-screen font-body flex items-center justify-center">
+      <div className="bg-paper min-h-screen font-body flex items-center justify-center pb-20">
         <div className="text-center">
           <p className="text-muted">Day not found</p>
           <Link to="/itinerary" className="text-link text-sm hover:underline mt-2 block">← Back to itinerary</Link>
@@ -35,7 +35,7 @@ export default function DayDetailPage() {
     .filter(group => group.activities.length > 0)
 
   return (
-    <div className="bg-paper min-h-screen font-body">
+    <div className="bg-paper min-h-screen font-body pb-20">
       {/* Header */}
       <header className="px-5 py-3 border-b border-ink/10 flex items-center gap-4">
         <Link to="/itinerary" className="text-muted text-sm hover:text-ink transition-colors">
