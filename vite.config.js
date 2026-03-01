@@ -17,6 +17,42 @@ export default defineConfig({
         // Runtime caching: CARTO map tiles (StaleWhileRevalidate with size cap)
         // CARTO URL format: https://{a|b|c}.basemaps.cartocdn.com/...
         runtimeCaching: [
+          // Google Fonts stylesheet (fonts.googleapis.com)
+          // StaleWhileRevalidate: serve cached CSS quickly, refresh in background
+          // The stylesheet lists which font files to fetch — short TTL so updates propagate
+          {
+            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+            handler: 'StaleWhileRevalidate',
+            options: {
+              cacheName: 'google-fonts-stylesheets',
+              expiration: {
+                maxEntries: 4,
+                maxAgeSeconds: 60 * 60 * 24 * 7 // 1 week
+              },
+              cacheableResponse: {
+                statuses: [0, 200]
+              }
+            }
+          },
+          // Google Fonts binaries (fonts.gstatic.com)
+          // CacheFirst: font files are content-addressed (URL = specific version),
+          // never change once fetched — safe to cache for up to 1 year
+          {
+            urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'google-fonts-webfonts',
+              expiration: {
+                maxEntries: 30,
+                maxAgeSeconds: 60 * 60 * 24 * 365 // 1 year
+              },
+              cacheableResponse: {
+                statuses: [0, 200]
+              }
+            }
+          },
+          // CARTO map tiles (StaleWhileRevalidate with size cap)
+          // CARTO URL format: https://{a|b|c}.basemaps.cartocdn.com/...
           {
             urlPattern: /^https:\/\/[abc]\.basemaps\.cartocdn\.com\/.*/i,
             handler: 'StaleWhileRevalidate',
