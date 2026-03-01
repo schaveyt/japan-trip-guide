@@ -94,6 +94,16 @@ function PreTripState({ daysUntil, day1 }) {
           </p>
         )}
       </div>
+
+      {/* Browse itinerary CTA — mirrors PostTripState Link pattern */}
+      <div className="mt-8">
+        <Link
+          to="/itinerary"
+          className="text-sm text-link hover:text-ink transition-colors"
+        >
+          Browse Full Itinerary →
+        </Link>
+      </div>
     </ReadingContainer>
   )
 }
