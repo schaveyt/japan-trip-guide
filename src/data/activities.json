@@ -2,6 +2,54 @@
   "activities": {
     "days": [
       {
+        "day_number": 3,
+        "date": "2026-05-19",
+        "city": "Fukuoka",
+        "title": "Fukuoka Food Day",
+        "entries": [
+          {
+            "id": "act-day3-ohori-cycling",
+            "category": "Outdoor",
+            "type": "Biking",
+            "name": "Ohori Park Cycling Loop",
+            "description": "Cruise around the scenic 2.7 km lake circuit at Ohori Park on a rental bike. The flat loop circles a large central pond framed by weeping willows and traditional torii — a rare pocket of calm inside a busy city. Best tackled early morning before crowds arrive.",
+            "notes": [
+              "Bike rentals available at the park entrance (~1,000–1,500 ¥/hr, no booking needed)",
+              "The loop is flat and takes 20–30 minutes at a relaxed pace — do multiple laps",
+              "Go early (before 9 AM) for cool temperatures and near-empty paths",
+              "Ohori Park is a 5-min taxi or 15-min walk from Tenjin subway station"
+            ],
+            "booking_required": false,
+            "booking_note": null,
+            "location": {
+              "name": "Ohori Park",
+              "coordinates": [130.4015, 33.5844],
+              "address": "1-2 Ohori Park, Chuo-ku, Fukuoka 810-0051"
+            }
+          },
+          {
+            "id": "act-day3-naka-river-cruise",
+            "category": "Outdoor",
+            "type": "Water",
+            "name": "Naka River Water Bus Cruise",
+            "description": "Glide along the Naka River on a 40–60 minute water bus cruise through Fukuoka's urban waterfront. The route passes Nakasu island, riverside yatai stalls, and views of the PayPay Dome and Fukuoka Tower. A perfect palate cleanser between ramen stops.",
+            "notes": [
+              "Departs from docks near Hakata Port — walk-up tickets available",
+              "Late afternoon slot (3–5 PM) offers softer light and cooler air",
+              "May is ideal — mild temps and no rain before tsuyu season",
+              "Pairs naturally with the evening yatai stalls at Nakasu, a short walk from the dock"
+            ],
+            "booking_required": false,
+            "booking_note": null,
+            "location": {
+              "name": "Naka River Cruise Dock",
+              "coordinates": [130.4186, 33.5858],
+              "address": "Hakata Port Area, Hakata-ku, Fukuoka 812-0031"
+            }
+          }
+        ]
+      },
+      {
         "day_number": 5,
         "date": "2026-05-21",
         "city": "Osaka",

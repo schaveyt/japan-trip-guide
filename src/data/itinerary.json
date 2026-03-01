@@ -123,6 +123,23 @@
         "travel_day": false,
         "activities": [
           {
+            "id": "day3-ohori-cycling",
+            "time_period": "morning",
+            "type": "sightseeing",
+            "name": "Ohori Park cycling loop",
+            "description": "Rent a bike at Ohori Park and do laps around the 2.7 km lake circuit. Flat, scenic, and crowd-free in the early morning — a great way to shake off jet lag before the food crawl begins.",
+            "notes": [
+              "Rentals at park entrance, ~1,000–1,500 ¥/hr, no booking needed",
+              "20–30 min per loop; 2 laps is a comfortable morning stretch",
+              "15-min walk or short taxi from Hakata Station"
+            ],
+            "location": {
+              "name": "Ohori Park",
+              "coordinates": [130.4015, 33.5844],
+              "address": "1-2 Ohori Park, Chuo-ku, Fukuoka 810-0051"
+            }
+          },
+          {
             "id": "day3-morning-tenjin",
             "time_period": "morning",
             "type": "shopping",
@@ -176,6 +193,22 @@
                 33.5898
               ],
               "address": "Canal City Hakata, Fukuoka"
+            }
+          },
+          {
+            "id": "day3-naka-river-cruise",
+            "time_period": "afternoon",
+            "type": "sightseeing",
+            "name": "Naka River water bus cruise",
+            "description": "Take a 40–60 min water bus along the Naka River between ramen stops. Good views of Nakasu and the waterfront before the yatai stalls open in the evening.",
+            "notes": [
+              "Walk-up tickets at the dock near Hakata Port",
+              "Aim for 3–4 PM to avoid midday heat and arrive near Nakasu for evening yatai"
+            ],
+            "location": {
+              "name": "Naka River Cruise Dock",
+              "coordinates": [130.4186, 33.5858],
+              "address": "Hakata Port Area, Hakata-ku, Fukuoka 812-0031"
             }
           },
           {
