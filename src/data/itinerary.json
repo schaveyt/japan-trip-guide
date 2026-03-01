@@ -2,16 +2,27 @@
   "trip": {
     "id": "japan-2026-fukuoka-first",
     "title": "Japan Graduation Trip",
-    "travelers": ["Dad (49)", "Son (18)"],
+    "travelers": [
+      "Dad (49)",
+      "Son (18)"
+    ],
     "duration_days": 10,
     "start_date": "2026-05-17",
-    "route": ["Fukuoka", "Osaka", "Kyoto", "Tokyo"],
+    "route": [
+      "Fukuoka",
+      "Osaka",
+      "Kyoto",
+      "Tokyo"
+    ],
     "days": [
       {
         "day_number": 1,
         "date": "2026-05-17",
         "title": "Travel Day - GRR to Fukuoka",
-        "cities": ["Grand Rapids", "In Transit"],
+        "cities": [
+          "Grand Rapids",
+          "In Transit"
+        ],
         "travel_day": true,
         "activities": [
           {
@@ -19,8 +30,11 @@
             "time_period": "morning",
             "type": "travel",
             "name": "Depart Grand Rapids",
-            "description": "GRR → Detroit or Chicago connection",
-            "notes": ["Drive or connection flight", "~15-18hr total travel time"],
+            "description": "GRR \u2192 Detroit or Chicago connection",
+            "notes": [
+              "Drive or connection flight",
+              "~15-18hr total travel time"
+            ],
             "location": null
           },
           {
@@ -29,7 +43,10 @@
             "type": "travel",
             "name": "International flight to Fukuoka",
             "description": "Long-haul flight to FUK via Tokyo-Haneda or other hub",
-            "notes": ["Cross date line", "Arrive late evening next day"],
+            "notes": [
+              "Cross date line",
+              "Arrive late evening next day"
+            ],
             "location": null
           }
         ]
@@ -38,7 +55,9 @@
         "day_number": 2,
         "date": "2026-05-18",
         "title": "Arrive Fukuoka",
-        "cities": ["Fukuoka"],
+        "cities": [
+          "Fukuoka"
+        ],
         "travel_day": false,
         "activities": [
           {
@@ -47,10 +66,16 @@
             "type": "arrival",
             "name": "Arrive Fukuoka Airport",
             "description": "Land at FUK, clear customs",
-            "notes": ["Jet-lagged", "Evening arrival"],
+            "notes": [
+              "Jet-lagged",
+              "Evening arrival"
+            ],
             "location": {
               "name": "Fukuoka Airport (FUK)",
-              "coordinates": [130.4461, 33.5859],
+              "coordinates": [
+                130.4461,
+                33.5859
+              ],
               "address": "Fukuoka Airport, Fukuoka"
             }
           },
@@ -60,10 +85,16 @@
             "type": "arrival",
             "name": "Check into hotel near Hakata Station",
             "description": "Drop bags at hotel in central area",
-            "notes": ["Central location", "Convenient for transit"],
+            "notes": [
+              "Central location",
+              "Convenient for transit"
+            ],
             "location": {
               "name": "Hakata Station Area",
-              "coordinates": [130.4212, 33.5904],
+              "coordinates": [
+                130.4212,
+                33.5904
+              ],
               "address": "Hakata Station, Fukuoka"
             }
           },
@@ -73,7 +104,11 @@
             "type": "food",
             "name": "First tonkotsu ramen",
             "description": "Light dinner at local ramen shop near station",
-            "notes": ["Easy option: Ippudo or Shin Shin", "Keep it simple", "Early to bed after"],
+            "notes": [
+              "Easy option: Ippudo or Shin Shin",
+              "Keep it simple",
+              "Early to bed after"
+            ],
             "location": null
           }
         ]
@@ -82,7 +117,9 @@
         "day_number": 3,
         "date": "2026-05-19",
         "title": "Fukuoka Food Day",
-        "cities": ["Fukuoka"],
+        "cities": [
+          "Fukuoka"
+        ],
         "travel_day": false,
         "activities": [
           {
@@ -91,10 +128,15 @@
             "type": "shopping",
             "name": "Explore Tenjin shopping district",
             "description": "Japan's largest underground shopping mall",
-            "notes": ["Good for stretching legs after travel"],
+            "notes": [
+              "Good for stretching legs after travel"
+            ],
             "location": {
               "name": "Tenjin Underground City",
-              "coordinates": [130.4017, 33.5904],
+              "coordinates": [
+                130.4017,
+                33.5904
+              ],
               "address": "Tenjin, Chuo Ward, Fukuoka"
             }
           },
@@ -104,10 +146,16 @@
             "type": "food",
             "name": "Ichiran Ramen HQ",
             "description": "Original location with iconic solo booth dining",
-            "notes": ["Customize spice level (3+ for heat)", "Order kaedama (extra noodles)"],
+            "notes": [
+              "Customize spice level (3+ for heat)",
+              "Order kaedama (extra noodles)"
+            ],
             "location": {
               "name": "Ichiran Ramen Headquarters",
-              "coordinates": [130.4084, 33.5915],
+              "coordinates": [
+                130.4084,
+                33.5915
+              ],
               "address": "Near Canal City Hakata, Fukuoka"
             }
           },
@@ -117,10 +165,16 @@
             "type": "food",
             "name": "Canal City Hakata - Ramen Stadium",
             "description": "8 regional ramen shops on 5th floor",
-            "notes": ["Try different style (miso, shoyu)", "Browse mall between tastings"],
+            "notes": [
+              "Try different style (miso, shoyu)",
+              "Browse mall between tastings"
+            ],
             "location": {
               "name": "Canal City Hakata",
-              "coordinates": [130.4075, 33.5898],
+              "coordinates": [
+                130.4075,
+                33.5898
+              ],
               "address": "Canal City Hakata, Fukuoka"
             }
           },
@@ -138,7 +192,10 @@
             ],
             "location": {
               "name": "Nakasu Yatai District",
-              "coordinates": [130.4086, 33.5945],
+              "coordinates": [
+                130.4086,
+                33.5945
+              ],
               "address": "Nakasu, Hakata Ward, Fukuoka"
             }
           }
@@ -148,7 +205,10 @@
         "day_number": 4,
         "date": "2026-05-20",
         "title": "Fukuoka to Osaka",
-        "cities": ["Fukuoka", "Osaka"],
+        "cities": [
+          "Fukuoka",
+          "Osaka"
+        ],
         "travel_day": true,
         "activities": [
           {
@@ -157,7 +217,9 @@
             "type": "food",
             "name": "Fukuoka breakfast with mentaiko",
             "description": "Spicy marinated cod roe on rice",
-            "notes": ["Check out Hakata Station shops"],
+            "notes": [
+              "Check out Hakata Station shops"
+            ],
             "location": null
           },
           {
@@ -166,7 +228,11 @@
             "type": "travel",
             "name": "Shinkansen to Osaka",
             "description": "High-speed rail from Shin-Hakata to Shin-Osaka",
-            "notes": ["~2.5 hours", "Grab ekiben (station bento)", "Watch Japan fly by at 180mph"],
+            "notes": [
+              "~2.5 hours",
+              "Grab ekiben (station bento)",
+              "Watch Japan fly by at 180mph"
+            ],
             "location": null
           },
           {
@@ -175,10 +241,15 @@
             "type": "arrival",
             "name": "Check into Osaka hotel",
             "description": "Hotel in Namba area (walking distance to everything)",
-            "notes": ["Central Osaka location"],
+            "notes": [
+              "Central Osaka location"
+            ],
             "location": {
               "name": "Namba District",
-              "coordinates": [135.5017, 34.6658],
+              "coordinates": [
+                135.5017,
+                34.6658
+              ],
               "address": "Namba, Osaka"
             }
           },
@@ -195,7 +266,10 @@
             ],
             "location": {
               "name": "Dotonbori",
-              "coordinates": [135.5023, 34.6686],
+              "coordinates": [
+                135.5023,
+                34.6686
+              ],
               "address": "Dotonbori, Chuo Ward, Osaka"
             }
           }
@@ -205,7 +279,9 @@
         "day_number": 5,
         "date": "2026-05-21",
         "title": "Universal Studios Japan - One Piece Day",
-        "cities": ["Osaka"],
+        "cities": [
+          "Osaka"
+        ],
         "travel_day": false,
         "activities": [
           {
@@ -225,7 +301,10 @@
             ],
             "location": {
               "name": "Universal Studios Japan",
-              "coordinates": [135.4326, 34.6654],
+              "coordinates": [
+                135.4326,
+                34.6654
+              ],
               "address": "Universal Studios Japan, Osaka"
             }
           },
@@ -235,7 +314,9 @@
             "type": "arrival",
             "name": "Return to hotel and rest",
             "description": "Light dinner near hotel if hungry",
-            "notes": ["Rest up after full park day"],
+            "notes": [
+              "Rest up after full park day"
+            ],
             "location": null
           }
         ]
@@ -244,7 +325,10 @@
         "day_number": 6,
         "date": "2026-05-22",
         "title": "Osaka to Kyoto",
-        "cities": ["Osaka", "Kyoto"],
+        "cities": [
+          "Osaka",
+          "Kyoto"
+        ],
         "travel_day": false,
         "activities": [
           {
@@ -253,10 +337,15 @@
             "type": "food",
             "name": "Kuromon Market breakfast",
             "description": "Osaka's Kitchen - fresh seafood stalls",
-            "notes": ["Eat as you walk: grilled seafood, tamagoyaki, fruit"],
+            "notes": [
+              "Eat as you walk: grilled seafood, tamagoyaki, fruit"
+            ],
             "location": {
               "name": "Kuromon Market",
-              "coordinates": [135.5064, 34.6661],
+              "coordinates": [
+                135.5064,
+                34.6661
+              ],
               "address": "Kuromon Market, Chuo Ward, Osaka"
             }
           },
@@ -266,7 +355,10 @@
             "type": "travel",
             "name": "Train to Kyoto",
             "description": "Short train ride from Namba to Kyoto",
-            "notes": ["~15 minutes", "Check into hotel near Kyoto Station or Gion"],
+            "notes": [
+              "~15 minutes",
+              "Check into hotel near Kyoto Station or Gion"
+            ],
             "location": null
           },
           {
@@ -282,7 +374,10 @@
             ],
             "location": {
               "name": "Fushimi Inari Shrine",
-              "coordinates": [135.7727, 34.9671],
+              "coordinates": [
+                135.7727,
+                34.9671
+              ],
               "address": "Fushimi Inari Taisha, Kyoto"
             }
           },
@@ -292,10 +387,16 @@
             "type": "sightseeing",
             "name": "Gion district exploration",
             "description": "Traditional geisha district",
-            "notes": ["Wander Pontocho Alley", "Find local izakaya for dinner"],
+            "notes": [
+              "Wander Pontocho Alley",
+              "Find local izakaya for dinner"
+            ],
             "location": {
               "name": "Gion District",
-              "coordinates": [135.7751, 35.0036],
+              "coordinates": [
+                135.7751,
+                35.0036
+              ],
               "address": "Gion, Higashiyama Ward, Kyoto"
             }
           }
@@ -305,7 +406,9 @@
         "day_number": 7,
         "date": "2026-05-23",
         "title": "Kyoto Active Day",
-        "cities": ["Kyoto"],
+        "cities": [
+          "Kyoto"
+        ],
         "travel_day": false,
         "activities": [
           {
@@ -322,7 +425,10 @@
             ],
             "location": {
               "name": "Arashiyama Bamboo Grove",
-              "coordinates": [135.6722, 35.0174],
+              "coordinates": [
+                135.6722,
+                35.0174
+              ],
               "address": "Arashiyama, Ukyo Ward, Kyoto"
             }
           },
@@ -348,7 +454,10 @@
             ],
             "location": {
               "name": "Kinkaku-ji (Golden Pavilion)",
-              "coordinates": [135.7292, 35.0394],
+              "coordinates": [
+                135.7292,
+                35.0394
+              ],
               "address": "Kinkaku-ji, Kita Ward, Kyoto"
             }
           },
@@ -367,7 +476,10 @@
             ],
             "location": {
               "name": "Nishiki Market",
-              "coordinates": [135.7626, 35.0050],
+              "coordinates": [
+                135.7626,
+                35.005
+              ],
               "address": "Nishiki Market, Nakagyo Ward, Kyoto"
             }
           }
@@ -377,7 +489,10 @@
         "day_number": 8,
         "date": "2026-05-24",
         "title": "Kyoto to Tokyo",
-        "cities": ["Kyoto", "Tokyo"],
+        "cities": [
+          "Kyoto",
+          "Tokyo"
+        ],
         "travel_day": false,
         "activities": [
           {
@@ -386,7 +501,9 @@
             "type": "sightseeing",
             "name": "Kyoto morning (optional)",
             "description": "Missed spots or sleep in",
-            "notes": ["Optional: Kiyomizu-dera temple (go early if visiting)"],
+            "notes": [
+              "Optional: Kiyomizu-dera temple (go early if visiting)"
+            ],
             "location": null
           },
           {
@@ -395,7 +512,10 @@
             "type": "travel",
             "name": "Shinkansen to Tokyo",
             "description": "High-speed rail from Kyoto to Tokyo",
-            "notes": ["~2 hours", "Kyoto Station → Tokyo Station"],
+            "notes": [
+              "~2 hours",
+              "Kyoto Station \u2192 Tokyo Station"
+            ],
             "location": null
           },
           {
@@ -412,7 +532,10 @@
             ],
             "location": {
               "name": "Akihabara Electric Town",
-              "coordinates": [139.7737, 35.6984],
+              "coordinates": [
+                139.7737,
+                35.6984
+              ],
               "address": "Akihabara, Chiyoda, Tokyo"
             }
           },
@@ -428,7 +551,10 @@
             ],
             "location": {
               "name": "Ikebukuro Ramen Street",
-              "coordinates": [139.7105, 35.7295],
+              "coordinates": [
+                139.7105,
+                35.7295
+              ],
               "address": "Ikebukuro, Toshima, Tokyo"
             }
           }
@@ -438,7 +564,9 @@
         "day_number": 9,
         "date": "2026-05-25",
         "title": "Tokyo Final Day",
-        "cities": ["Tokyo"],
+        "cities": [
+          "Tokyo"
+        ],
         "travel_day": false,
         "activities": [
           {
@@ -447,10 +575,16 @@
             "type": "shopping",
             "name": "Pokemon Center MEGA Tokyo",
             "description": "Flagship Pokemon store in Ikebukuro",
-            "notes": ["Opens 10am, arrive early", "Pokemon Cafe if booked"],
+            "notes": [
+              "Opens 10am, arrive early",
+              "Pokemon Cafe if booked"
+            ],
             "location": {
               "name": "Pokemon Center MEGA Tokyo",
-              "coordinates": [139.7104, 35.7295],
+              "coordinates": [
+                139.7104,
+                35.7295
+              ],
               "address": "Ikebukuro, Toshima, Tokyo"
             }
           },
@@ -460,10 +594,15 @@
             "type": "sightseeing",
             "name": "Meiji Shrine",
             "description": "Peaceful forested shrine",
-            "notes": ["Large shrine in wooded park"],
+            "notes": [
+              "Large shrine in wooded park"
+            ],
             "location": {
               "name": "Meiji Shrine",
-              "coordinates": [139.6993, 35.6764],
+              "coordinates": [
+                139.6993,
+                35.6764
+              ],
               "address": "Meiji Jingu, Shibuya, Tokyo"
             }
           },
@@ -479,7 +618,10 @@
             ],
             "location": {
               "name": "Harajuku / Takeshita Street",
-              "coordinates": [139.7027, 35.6706],
+              "coordinates": [
+                139.7027,
+                35.6706
+              ],
               "address": "Harajuku, Shibuya, Tokyo"
             }
           },
@@ -502,7 +644,9 @@
         "day_number": 10,
         "date": "2026-05-26",
         "title": "Departure Day",
-        "cities": ["Tokyo"],
+        "cities": [
+          "Tokyo"
+        ],
         "travel_day": true,
         "activities": [
           {
@@ -511,10 +655,16 @@
             "type": "food",
             "name": "Tsukiji Outer Market breakfast",
             "description": "Fresh sushi and street food for classic Tokyo send-off",
-            "notes": ["Fresh sushi, tamagoyaki, street food", "Last-minute shopping if needed"],
+            "notes": [
+              "Fresh sushi, tamagoyaki, street food",
+              "Last-minute shopping if needed"
+            ],
             "location": {
               "name": "Tsukiji Outer Market",
-              "coordinates": [139.7707, 35.6654],
+              "coordinates": [
+                139.7707,
+                35.6654
+              ],
               "address": "Tsukiji, Chuo, Tokyo"
             }
           },
@@ -524,10 +674,15 @@
             "type": "travel",
             "name": "Head to airport",
             "description": "Narita or Haneda departure",
-            "notes": ["Budget 2-3hrs before international flight"],
+            "notes": [
+              "Budget 2-3hrs before international flight"
+            ],
             "location": {
               "name": "Tokyo Narita/Haneda Airport",
-              "coordinates": [139.7805, 35.5494],
+              "coordinates": [
+                139.7805,
+                35.5494
+              ],
               "address": "Tokyo area airports"
             }
           },
@@ -537,7 +692,9 @@
             "type": "travel",
             "name": "Flight home",
             "description": "International departure to USA",
-            "notes": ["Arrive same day due to time zones"],
+            "notes": [
+              "Arrive same day due to time zones"
+            ],
             "location": null
           }
         ]
