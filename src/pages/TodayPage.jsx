@@ -203,9 +203,9 @@ function InTripState({ day }) {
                   <p className="text-muted text-xs mt-0.5 leading-relaxed">{a.description}</p>
                 )}
                 {a.booking_required && (
-                  <p className="text-torii text-xs mt-1 uppercase tracking-wider">
+                  <div className="mt-1 border-l-4 border-torii pl-3 py-1 bg-torii/5 text-torii text-xs uppercase tracking-wider">
                     Book ahead — {a.booking_note}
-                  </p>
+                  </div>
                 )}
               </li>
             ))}

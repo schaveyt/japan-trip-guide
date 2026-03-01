@@ -140,7 +140,7 @@ export default function ActivitiesPage() {
                             <p className="text-muted text-sm mt-1 leading-relaxed">{a.description}</p>
                           )}
                           {a.booking_required && (
-                            <div className="mt-2 px-3 py-2 border border-torii/40 bg-torii/5 text-torii text-xs uppercase tracking-wider">
+                            <div className="mt-2 border-l-4 border-torii pl-4 py-2 bg-torii/5 text-torii text-xs uppercase tracking-wider">
                               Book ahead — {a.booking_note}
                             </div>
                           )}
