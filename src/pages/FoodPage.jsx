@@ -1,15 +1,35 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Link, useLocation } from 'react-router'
 import foodGuide from '../data/food-guide.json'
 import { ReadingContainer } from '../components/Layout'
 
 export default function FoodPage() {
-  // All cities expanded by default
-  const [openCities, setOpenCities] = useState(
-    () => new Set(foodGuide.cities.map(c => c.name))
-  )
+  const location = useLocation()
+  const targetCity = location.state?.city ?? null
+
+  // useState initializer: if deep-linked from DayDetailPage with a city,
+  // expand only that city (focus user on relevant section).
+  // Default (no state): all cities expanded.
+  // Pattern: mirrors MapPage visibleDays initializer (Phase 4 decision).
+  const [openCities, setOpenCities] = useState(() => {
+    if (targetCity && foodGuide.cities.some(c => c.name === targetCity)) {
+      return new Set([targetCity])
+    }
+    return new Set(foodGuide.cities.map(c => c.name))
+  })
   // Type filter — null means "show all"
   const [activeType, setActiveType] = useState(null)
+
+  // Refs for city section heading buttons — keyed by city name
+  const cityRefs = useRef({})
+
+  // Scroll to the target city after mount (runs once; no-op if no targetCity)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (targetCity && cityRefs.current[targetCity]) {
+      cityRefs.current[targetCity].scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }, [])
 
   // Collect all unique types across all restaurants for filter buttons
   const allTypes = Array.from(
@@ -81,6 +101,7 @@ export default function FoodPage() {
           return (
             <section key={city.name} className="mb-8">
               <button
+                ref={el => { cityRefs.current[city.name] = el }}
                 onClick={() => toggleCity(city.name)}
                 className="w-full flex items-center justify-between py-3 border-b border-ink/20"
               >
