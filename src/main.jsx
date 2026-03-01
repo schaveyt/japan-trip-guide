@@ -13,6 +13,7 @@ import MapPage from './pages/MapPage.jsx'
 import ItineraryPage from './pages/ItineraryPage.jsx'
 import DayDetailPage from './pages/DayDetailPage.jsx'
 import FoodPage from './pages/FoodPage.jsx'
+import ActivitiesPage from './pages/ActivitiesPage.jsx'
 import TodayPage from './pages/TodayPage.jsx'
 
 // Register service worker — autoUpdate mode handles reload automatically
@@ -46,6 +47,7 @@ const router = createBrowserRouter([
       { path: '/itinerary/:dayNumber',     element: <DayDetailPage /> },
       { path: '/map',                      element: <MapPage /> },
       { path: '/food',                     element: <FoodPage /> },
+      { path: '/activities',               element: <ActivitiesPage /> },
     ],
   },
 ])
