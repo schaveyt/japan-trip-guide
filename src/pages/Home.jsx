@@ -4,9 +4,18 @@ import { ReadingContainer } from '../components/Layout'
 import itinerary from '../data/itinerary.json'
 import foodGuide from '../data/food-guide.json'
 
-// Curated Unsplash hero images for development (source: 02-RESEARCH.md)
-const heroImages = {
-  japan: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1600&q=80&auto=format&fit=crop',
+// Local hero images — WebP with JPEG fallback for offline caching via service worker.
+// Served from public/images/, precached by SW (configured in vite.config.js VitePWA globPatterns).
+// Replaces Unsplash CDN URLs which produce cross-origin opaque responses not reliably cacheable.
+const japanHero = {
+  webp: {
+    '800':  '/images/japan-hero-800.webp',
+    '1600': '/images/japan-hero-1600.webp',
+  },
+  jpg: {
+    '800':  '/images/japan-hero-800.jpg',
+    '1600': '/images/japan-hero-1600.jpg',
+  },
 }
 
 export default function Home() {
@@ -20,8 +29,8 @@ export default function Home() {
 
       {/* Hero — full-bleed Japan photo with editorial headline */}
       <HeroImage
-        src={heroImages.japan}
-        alt="Tokyo street at dusk"
+        srcSet={japanHero}
+        alt="Tokyo street at dusk — Shibuya crossing"
       >
         <span className="text-sm uppercase tracking-widest text-white/70 mb-2 block">
           May 2026 · Dad &amp; Son

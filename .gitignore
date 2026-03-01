@@ -26,3 +26,9 @@ dist-ssr
 # Playwright artifacts
 .playwright-cli/
 *.png
+
+# Build source images (intermediate, not for deployment)
+public/images/source-*.jpg
+
+# One-off conversion scripts (not part of build)
+scripts/

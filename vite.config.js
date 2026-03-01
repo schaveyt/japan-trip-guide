@@ -12,7 +12,8 @@ export default defineConfig({
       workbox: {
         // Precache all app shell assets + images
         // JSON data is statically bundled into JS chunks, so it's covered by js/css/html
-        globPatterns: ['**/*.{js,css,html,svg,png,webp,jpg,ico,woff,woff2}'],
+        // Note: excludes source-japan.jpg (build artifact, not deployed as-is)
+        globPatterns: ['**/*.{js,css,html,svg,png,webp,ico,woff,woff2}', 'images/japan-hero-*.jpg'],
         // Runtime caching: CARTO map tiles (StaleWhileRevalidate with size cap)
         // CARTO URL format: https://{a|b|c}.basemaps.cartocdn.com/...
         runtimeCaching: [
