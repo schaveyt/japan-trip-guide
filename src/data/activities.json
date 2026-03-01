@@ -1,0 +1,218 @@
+{
+  "activities": {
+    "days": [
+      {
+        "day_number": 5,
+        "date": "2026-05-21",
+        "city": "Osaka",
+        "title": "Universal Studios Japan - One Piece Day",
+        "entries": [
+          {
+            "id": "act-day5-one-piece-usj",
+            "category": "Anime & Pop Culture",
+            "type": "One Piece",
+            "name": "One Piece at Universal Studios Japan",
+            "description": "One Piece Premier Summer attractions and shows at USJ — dedicated One Piece area with themed rides and Sanji's Pirate Restaurant",
+            "notes": [
+              "Seasonal One Piece events run during summer months",
+              "Arrive before park opening for shortest wait times",
+              "BUY EXPRESS PASS — worth every yen for popular rides",
+              "Download USJ app for real-time wait times"
+            ],
+            "booking_required": false,
+            "booking_note": null,
+            "location": {
+              "name": "Universal Studios Japan",
+              "coordinates": [135.4329, 34.6654],
+              "address": "2-1-33 Sakurajima, Konohana-ku, Osaka"
+            }
+          }
+        ]
+      },
+      {
+        "day_number": 7,
+        "date": "2026-05-23",
+        "city": "Kyoto",
+        "title": "Kyoto Active Day",
+        "entries": [
+          {
+            "id": "act-day7-fushimi-inari",
+            "category": "Outdoor",
+            "type": "Hiking",
+            "name": "Fushimi Inari Trail",
+            "description": "Hike through thousands of vermillion torii gates winding up the mountain behind Fushimi Inari Taisha — free and open 24/7",
+            "notes": [
+              "2-4 hours depending on pace and how far up you go",
+              "Less crowded as you climb higher past the main shrine",
+              "Early morning or late afternoon for best photos",
+              "Small shrines and fox statues scattered along the trail"
+            ],
+            "booking_required": false,
+            "booking_note": null,
+            "location": {
+              "name": "Fushimi Inari Taisha",
+              "coordinates": [135.7727, 34.9671],
+              "address": "68 Fukakusa Yabunouchicho, Fushimi-ku, Kyoto"
+            }
+          },
+          {
+            "id": "act-day7-kurama-kibune",
+            "category": "Outdoor",
+            "type": "Hiking",
+            "name": "Mt. Kurama to Kibune Hike",
+            "description": "A 2-hour forest and temple hike connecting the mountain village of Kurama to the riverside town of Kibune — one of Kyoto's best half-day hikes",
+            "notes": [
+              "Start from Kurama Station (Eizan Railway from Demachiyanagi)",
+              "Trail passes through Kurama-dera temple grounds",
+              "Finish in Kibune for riverside dining (kawadoko) in summer",
+              "Bring water — limited vending machines on the trail"
+            ],
+            "booking_required": false,
+            "booking_note": null,
+            "location": {
+              "name": "Kurama-dera",
+              "coordinates": [135.7710, 35.1190],
+              "address": "1074 Kurama Honmachi, Sakyo-ku, Kyoto"
+            }
+          }
+        ]
+      },
+      {
+        "day_number": 8,
+        "date": "2026-05-24",
+        "city": "Kyoto",
+        "title": "Kyoto to Tokyo",
+        "entries": [
+          {
+            "id": "act-day8-hakone-tokaido",
+            "category": "Outdoor",
+            "type": "Hiking",
+            "name": "Old Tokaido Road in Hakone",
+            "description": "Historic samurai trail through cedar forests — walk the same stone-paved road Edo-period travelers used between Kyoto and Tokyo",
+            "notes": [
+              "Can visit en route from Kyoto to Tokyo via Hakone",
+              "1.5 hours from Tokyo by train",
+              "Combine with Hakone hot springs for a soak after hiking",
+              "Well-preserved stone path through towering cedar trees"
+            ],
+            "booking_required": false,
+            "booking_note": null,
+            "location": {
+              "name": "Hakone Old Tokaido Road",
+              "coordinates": [139.0264, 35.2361],
+              "address": "Hakone-machi, Ashigarashimo-gun, Kanagawa"
+            }
+          }
+        ]
+      },
+      {
+        "day_number": 9,
+        "date": "2026-05-25",
+        "city": "Tokyo",
+        "title": "Tokyo Final Day",
+        "entries": [
+          {
+            "id": "act-day9-mt-takao",
+            "category": "Outdoor",
+            "type": "Hiking",
+            "name": "Mt. Takao Hike",
+            "description": "One of Tokyo's most accessible mountain hikes — about 1 hour from Shinjuku with multiple trail options from easy to challenging",
+            "notes": [
+              "Take Keio Line from Shinjuku to Takaosanguchi (~50 min)",
+              "Trail 1 is paved and easy; Trail 6 follows a stream through forest",
+              "Cable car available for part of the ascent",
+              "Excellent half-day trip — summit views of Mt. Fuji on clear days"
+            ],
+            "booking_required": false,
+            "booking_note": null,
+            "location": {
+              "name": "Mt. Takao",
+              "coordinates": [139.2437, 35.6251],
+              "address": "Takaomachi, Hachioji, Tokyo"
+            }
+          },
+          {
+            "id": "act-day9-pokemon-cafe",
+            "category": "Anime & Pop Culture",
+            "type": "Pokemon",
+            "name": "Pokemon Cafe",
+            "description": "Themed food and drinks at the official Pokemon Cafe near Tokyo Station — Pikachu-shaped pancakes, character latte art, and exclusive merchandise",
+            "notes": [
+              "Reservations open 1 month before — book immediately when slots open",
+              "Located inside Pokemon Center Tokyo DX near Tokyo Station",
+              "Meals are themed around different Pokemon each season",
+              "Gift shop inside cafe has exclusive items not sold elsewhere"
+            ],
+            "booking_required": true,
+            "booking_note": "Opens 1 month ahead — sells out same day",
+            "location": {
+              "name": "Pokemon Center Tokyo DX",
+              "coordinates": [139.7671, 35.6812],
+              "address": "2-11-2 Nihonbashi, Chuo-ku, Tokyo"
+            }
+          },
+          {
+            "id": "act-day9-ghibli-museum",
+            "category": "Anime & Pop Culture",
+            "type": "Akihabara",
+            "name": "Ghibli Museum",
+            "description": "Immersive museum dedicated to Studio Ghibli films in Mitaka — designed by Hayao Miyazaki himself with exclusive short films, exhibits, and a rooftop garden",
+            "notes": [
+              "Tickets only via Lawson machines or online lottery — no walk-ins",
+              "Book 1 month ahead when tickets become available",
+              "About 20 minutes from Shinjuku on the JR Chuo Line",
+              "Worth it if you love Spirited Away, Totoro, or any Ghibli film"
+            ],
+            "booking_required": true,
+            "booking_note": "Lottery tickets only — book 1 month ahead via Lawson",
+            "location": {
+              "name": "Ghibli Museum, Mitaka",
+              "coordinates": [139.5702, 35.6962],
+              "address": "1-1-83 Shimo-Renjaku, Mitaka, Tokyo"
+            }
+          },
+          {
+            "id": "act-day9-akihabara",
+            "category": "Anime & Pop Culture",
+            "type": "Akihabara",
+            "name": "Akihabara Anime Shopping",
+            "description": "Tokyo's legendary electronics and anime district — visit Animate, Mandarake Complex, Radio Kaikan, and Kotobukiya for anime goods, figures, and retro games",
+            "notes": [
+              "Mandarake Complex has 8 floors of used anime, manga, and figures",
+              "Radio Kaikan is a multi-floor building packed with specialty shops",
+              "Hit the arcades — SEGA and Taito Station for crane games and rhythm games",
+              "Best prices on figures and collectibles compared to other cities"
+            ],
+            "booking_required": false,
+            "booking_note": null,
+            "location": {
+              "name": "Akihabara Electric Town",
+              "coordinates": [139.7711, 35.6984],
+              "address": "Sotokanda, Chiyoda-ku, Tokyo"
+            }
+          },
+          {
+            "id": "act-day9-nakano-broadway",
+            "category": "Anime & Pop Culture",
+            "type": "Akihabara",
+            "name": "Nakano Broadway",
+            "description": "Less crowded alternative to Akihabara with excellent vintage anime goods and the Mandarake flagship store — a hidden gem for serious collectors",
+            "notes": [
+              "Take JR Chuo Line from Shinjuku — just 5 minutes",
+              "Mandarake flagship occupies multiple floors here",
+              "Better selection of vintage and rare items than Akihabara",
+              "Walk through the covered Nakano Sun Mall to reach it"
+            ],
+            "booking_required": false,
+            "booking_note": null,
+            "location": {
+              "name": "Nakano Broadway",
+              "coordinates": [139.6647, 35.7077],
+              "address": "5-52-15 Nakano, Nakano-ku, Tokyo"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
