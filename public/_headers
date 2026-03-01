@@ -1,0 +1,39 @@
+# Cloudflare Pages edge caching rules
+# Served from public/_headers — Cloudflare Pages reads this automatically
+
+# Hashed static assets — immutable (Vite adds content hash to filenames)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Local images — immutable once deployed
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# PWA icons — long cache (versioned by filename from assets-generator)
+/pwa-64x64.png
+  Cache-Control: public, max-age=31536000, immutable
+/pwa-192x192.png
+  Cache-Control: public, max-age=31536000, immutable
+/pwa-512x512.png
+  Cache-Control: public, max-age=31536000, immutable
+/maskable-icon-512x512.png
+  Cache-Control: public, max-age=31536000, immutable
+/apple-touch-icon.png
+  Cache-Control: public, max-age=86400
+/apple-touch-icon-180x180.png
+  Cache-Control: public, max-age=86400
+/favicon.ico
+  Cache-Control: public, max-age=86400
+
+# Service worker — NEVER cache (must be fresh so updates deploy correctly)
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Manifest — correct MIME type + short cache (theme changes should propagate)
+/manifest.webmanifest
+  Content-Type: application/manifest+json
+  Cache-Control: public, max-age=86400
+
+# HTML entry point — always revalidate
+/*
+  Cache-Control: public, max-age=0, must-revalidate

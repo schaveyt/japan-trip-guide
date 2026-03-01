@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Paper background -->
+  <rect width="512" height="512" fill="#F8F7F4"/>
+  <!-- Torii gate silhouette in torii red -->
+  <!-- Top crossbeam (kasagi) with slight curve via rect -->
+  <rect x="60" y="118" width="392" height="42" rx="6" fill="#C73E3A"/>
+  <!-- Kasagi overhangs (curved end caps) -->
+  <rect x="44" y="114" width="48" height="20" rx="10" fill="#C73E3A"/>
+  <rect x="420" y="114" width="48" height="20" rx="10" fill="#C73E3A"/>
+  <!-- Second crossbeam (nuki) -->
+  <rect x="100" y="198" width="312" height="32" rx="4" fill="#C73E3A"/>
+  <!-- Left pillar -->
+  <rect x="114" y="196" width="46" height="270" rx="6" fill="#C73E3A"/>
+  <!-- Right pillar -->
+  <rect x="352" y="196" width="46" height="270" rx="6" fill="#C73E3A"/>
+</svg>
