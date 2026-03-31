@@ -26,6 +26,7 @@ dist-ssr
 # Playwright artifacts
 .playwright-cli/
 *.png
+!public/*.png
 
 # Build source images (intermediate, not for deployment)
 public/images/source-*.jpg
