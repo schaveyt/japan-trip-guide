@@ -1,3 +1,5 @@
 name = "japan-trip-guide"
 compatibility_date = "2026-02-28"
-pages_build_output_dir = "dist"
+
+[assets]
+directory = "./dist"
