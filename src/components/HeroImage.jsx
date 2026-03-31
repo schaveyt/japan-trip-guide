@@ -51,7 +51,7 @@ export default function HeroImage({ src, srcSet, alt, children, className = "" }
 
   return (
     <div
-      className={`relative w-full overflow-hidden aspect-[4/3] md:aspect-[16/9] min-h-[50vh] md:min-h-[60vh] ${className}`}
+      className={`relative w-full overflow-hidden aspect-[4/3] md:aspect-[16/9] min-h-[50vh] md:min-h-[60vh] max-h-[70vh] ${className}`}
     >
       {renderImage()}
       {/* Dark gradient: rgba(0,0,0,0.2) at top → rgba(0,0,0,0.6) at bottom */}
