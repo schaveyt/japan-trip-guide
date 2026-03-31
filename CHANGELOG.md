@@ -14,3 +14,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - PWA support — offline-capable via Workbox service worker
 - App version displayed on Home cover page (sourced from package.json)
 - Cloudflare Workers deployment with GitHub auto-deploy on push to main
+
+### Fixed
+- Favicon was pointing to Vite's default `vite.svg` instead of `favicon.ico`
+- PWA icons (192x192, 512x512, etc.) returning 404 in production — `*.png` was gitignored by a leftover Playwright rule, preventing icons from reaching Cloudflare's CI build
