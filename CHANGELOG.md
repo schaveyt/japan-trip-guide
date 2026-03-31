@@ -3,6 +3,11 @@
 All notable changes to this project will be documented in this file.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.0.1] - 2026-03-31
+
+### Fixed
+- Hero banner was excessively tall on wide desktop screens — `aspect-ratio: 16/9` at 1440px width produced an 810px hero on a 900px viewport. Added `max-h-[70vh]` cap to `HeroImage` container.
+
 ## [1.0.0] - 2026-03-31
 
 ### Added
