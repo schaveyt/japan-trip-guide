@@ -11,11 +11,23 @@ npm run lint      # ESLint
 npm run preview   # Preview production build locally
 ```
 
-No test suite is configured. Deploy via Cloudflare Pages (auto-deploys on push to main).
+No test suite is configured.
+
+## Deployment
+
+Hosted on **Cloudflare Workers** (static assets mode) at https://japan-trip-guide.schaveyt.workers.dev. Auto-deploys on push to `main` via Workers Builds (Git-connected, not Direct Upload).
+
+- **GitHub repo**: https://github.com/schaveyt/japan-trip-guide
+- **Build command**: `npm run build`
+- **Deploy command**: `npx wrangler deploy`
+- **wrangler.toml**: sets `name = "japan-trip-guide"` and `[assets] directory = "./dist"` — no worker script needed, pure static asset serving
+- **Manual deploy**: `npm run build && wrangler deploy` from local
+
+> Note: this uses **Workers Builds** (not the legacy Cloudflare Pages product). The deploy command must be `npx wrangler deploy`, NOT `npx wrangler pages deploy dist` — the latter targets the Pages API which is a different product.
 
 ## Architecture
 
-Mobile-first Japan trip guide — React 19 + Vite + Tailwind v4, deployed to Cloudflare Pages.
+Mobile-first Japan trip guide — React 19 + Vite + Tailwind v4, deployed to Cloudflare Workers.
 
 ### Routing (`src/main.jsx`)
 
@@ -33,7 +45,7 @@ The router is defined entirely in `main.jsx` — `App.jsx` is unused. Two-level 
 
 All trip data lives in two JSON files:
 
-- `src/data/itinerary.json` — 10-day itinerary; activities have `location.coordinates` in **GeoJSON order `[lng, lat]`**. Leaflet requires `[lat, lng]` — always use the `toLeaflet(coords)` helper in `TripMap.jsx` when passing coordinates to react-leaflet.
+- `src/data/itinerary.json` — 11-day itinerary (May 19–29, 2026); activities have `location.coordinates` in **GeoJSON order `[lng, lat]`**. Leaflet requires `[lat, lng]` — always use the `toLeaflet(coords)` helper in `TripMap.jsx` when passing coordinates to react-leaflet.
 - `src/data/food-guide.json` — food recommendations for `FoodPage`
 
 ### Design System
