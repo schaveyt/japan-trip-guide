@@ -3,6 +3,7 @@ import HeroImage from '../components/HeroImage'
 import { ReadingContainer } from '../components/Layout'
 import itinerary from '../data/itinerary.json'
 import foodGuide from '../data/food-guide.json'
+import pkg from '../../package.json'
 
 // Local hero images — WebP with JPEG fallback for offline caching via service worker.
 // Served from public/images/, precached by SW (configured in vite.config.js VitePWA globPatterns).
@@ -33,7 +34,7 @@ export default function Home() {
         alt="Tokyo street at dusk — Shibuya crossing"
       >
         <span className="text-sm uppercase tracking-widest text-white/70 mb-2 block">
-          May 2026 · Dad &amp; Son
+          May 2026 · Dad &amp; Son · v{pkg.version}
         </span>
         <h1 className="font-display text-4xl md:text-headline lg:text-hero font-bold leading-tight">
           Japan

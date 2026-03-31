@@ -25,6 +25,14 @@ Hosted on **Cloudflare Workers** (static assets mode) at https://japan-trip-guid
 
 > Note: this uses **Workers Builds** (not the legacy Cloudflare Pages product). The deploy command must be `npx wrangler deploy`, NOT `npx wrangler pages deploy dist` — the latter targets the Pages API which is a different product.
 
+## Versioning
+
+App version is managed in `package.json` and displayed on the Home cover page (imported directly via Vite's native JSON import support — no config needed).
+
+- Bump `package.json` version with every meaningful release
+- **Always update `CHANGELOG.md`** at the repo root with a new version entry
+- Follow [Keep a Changelog](https://keepachangelog.com) format: `Added / Changed / Fixed / Removed` sections under each `## [x.y.z] - YYYY-MM-DD` header
+
 ## Architecture
 
 Mobile-first Japan trip guide — React 19 + Vite + Tailwind v4, deployed to Cloudflare Workers.
