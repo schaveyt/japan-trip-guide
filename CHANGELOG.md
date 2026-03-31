@@ -7,6 +7,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Fixed
 - Hero banner was excessively tall on wide desktop screens — `aspect-ratio: 16/9` at 1440px width produced an 810px hero on a 900px viewport. Added `max-h-[70vh]` cap to `HeroImage` container.
+- "Traveling as …" text on Home page now renders on its own line for better readability.
 
 ## [1.0.0] - 2026-03-31
 

@@ -57,6 +57,7 @@ export default function Home() {
           </p>
           <p className="text-ink leading-relaxed">
             <strong>{trip.duration_days} days</strong> across {route}.
+            <br />
             Traveling as <strong>{trip.travelers.join(' and ')}</strong>.
           </p>
         </section>
