@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.3.0] - 2026-05-18
+
+### Added
+- **Hotel info on Map page** — teal house-icon pins for all 4 hotels; Hotels toggle visible only when authenticated; popup shows name, address, check-in/out dates, and confirmation number
+- **Hotel card on Day Detail pages** — "Tonight's Stay" card with hotel name, address, dates, and conf# shown to authenticated users (guest+); omitted on travel days or days with no lodging match
+- **Tonight's hotel on Today page** — compact "Tonight" card in the in-trip state; "Night 1 Lodging" teaser shown in the pre-trip countdown for authenticated users
+- **`/api/hotels` Worker endpoint** — returns full hotel array (name, city, dates, conf#, coordinates) for any authenticated session; returns 401 for public requests
+- **Hotel data in Worker** (`worker/hotels.js`) — confirmation numbers never bundled in the client; served only after session cookie passes the role gate
+
 ## [1.2.0] - 2026-05-18
 
 ### Added

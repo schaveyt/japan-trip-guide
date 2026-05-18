@@ -1,5 +1,6 @@
 import { handleNotes } from './notes.js'
 import { handlePhotos } from './photos.js'
+import { handleHotels } from './hotels.js'
 import { getSession, issueSession, clearSessionCookie, timingSafeEqual, checkRateLimit } from './auth.js'
 import { jsonResponse, badRequest, tooManyRequests, noContent } from './util.js'
 
@@ -30,6 +31,10 @@ async function handleApi(req, env, url) {
   if (url.pathname === '/api/auth/me' && req.method === 'GET') {
     const session = await getSession(req, env)
     return jsonResponse({ role: session?.role ?? null })
+  }
+
+  if (url.pathname === '/api/hotels' && req.method === 'GET') {
+    return handleHotels(req, env)
   }
 
   if (url.pathname === '/api/notes' || url.pathname.startsWith('/api/notes/')) {

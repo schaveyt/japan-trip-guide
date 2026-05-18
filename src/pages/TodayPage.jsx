@@ -4,6 +4,8 @@ import { Link } from 'react-router'
 import activitiesData from '../data/activities.json'
 import { NotesList } from '../components/journal/NotesList'
 import { PhotoGrid } from '../components/journal/PhotoGrid'
+import { useHotels } from '../hooks/useHotels'
+import { hotelForDate } from '../lib/hotelForDate'
 
 const { trip } = itinerary
 
@@ -73,8 +75,9 @@ const TIME_LABELS = {
 
 // --- Sub-components ---
 
-function PreTripState({ daysUntil, day1 }) {
+function PreTripState({ daysUntil, day1, hotels }) {
   const firstActivity = day1.activities[0]
+  const night1Hotel = hotelForDate('2026-05-20', hotels)
   return (
     <ReadingContainer className="py-12">
       {/* Countdown hero */}
@@ -97,6 +100,15 @@ function PreTripState({ daysUntil, day1 }) {
           </p>
         )}
       </div>
+
+      {/* Night 1 lodging teaser — authenticated users only */}
+      {night1Hotel && (
+        <div className="border-t border-ink/10 pt-8 mt-8">
+          <p className="text-xs uppercase tracking-widest text-muted mb-2">Night 1 Lodging</p>
+          <p className="font-display text-base font-bold text-ink">{night1Hotel.name}</p>
+          <p className="text-muted text-sm mt-0.5">{night1Hotel.city}</p>
+        </div>
+      )}
 
       {/* Browse itinerary CTA — mirrors PostTripState Link pattern */}
       <div className="mt-8">
@@ -136,10 +148,11 @@ function PostTripState() {
   )
 }
 
-function InTripState({ day }) {
+function InTripState({ day, hotels }) {
   const currentPeriod = getCurrentTimePeriod()
   const whatsNextPeriod = getWhatsNextPeriod(day.activities, currentPeriod)
   const allPast = whatsNextPeriod === null
+  const tonightHotel = hotelForDate(day.date, hotels)
 
   const todayActivities = activitiesData.activities.days.find(
     d => d.day_number === day.day_number
@@ -188,6 +201,15 @@ function InTripState({ day }) {
                 )}
               </div>
             ))}
+        </div>
+      )}
+
+      {/* Tonight's hotel — authenticated users only */}
+      {tonightHotel && (
+        <div className="border border-ink/15 bg-paper px-5 py-4 mb-8">
+          <p className="text-xs uppercase tracking-widest text-muted mb-2">Tonight</p>
+          <p className="font-display text-base font-bold text-ink mb-0.5">{tonightHotel.name}</p>
+          <p className="text-muted text-sm">{tonightHotel.location.address}</p>
         </div>
       )}
 
@@ -288,14 +310,15 @@ function InTripState({ day }) {
 
 export default function TodayPage() {
   const tripState = getTripState()
+  const hotels = useHotels()
 
   return (
     <div className="bg-paper min-h-screen font-body pb-20">
       {tripState.state === 'pre-trip' && (
-        <PreTripState daysUntil={tripState.daysUntil} day1={tripState.day1} />
+        <PreTripState daysUntil={tripState.daysUntil} day1={tripState.day1} hotels={hotels} />
       )}
       {tripState.state === 'in-trip' && tripState.day && (
-        <InTripState day={tripState.day} />
+        <InTripState day={tripState.day} hotels={hotels} />
       )}
       {tripState.state === 'post-trip' && (
         <PostTripState />

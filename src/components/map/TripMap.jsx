@@ -46,6 +46,16 @@ function createActivityIcon(shadow) {
   })
 }
 
+function createHotelIcon(shadow) {
+  return divIcon({
+    html: `<div style="width:16px;height:16px;background:#0F766E;border:2px solid white;box-shadow:0 1px 4px ${shadow};display:flex;align-items:center;justify-content:center;"><svg width="10" height="10" viewBox="0 0 10 10" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M5 1L9 5H7V9H3V5H1Z"/></svg></div>`,
+    className: '',
+    iconSize: [16, 16],
+    iconAnchor: [8, 8],
+    popupAnchor: [0, -10],
+  })
+}
+
 // Child component: fits map bounds to all visible locations on mount
 function BoundsFitter({ coordinates }) {
   const map = useMap()
@@ -61,7 +71,7 @@ const TILE_URLS = {
   dark:  'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
 }
 
-export default function TripMap({ days, visibleDays, activityEntries = [], showActivities = false }) {
+export default function TripMap({ days, visibleDays, activityEntries = [], showActivities = false, hotels = [], showHotels = false }) {
   const { resolvedTheme } = useTheme()
   const shadow = resolvedTheme === 'dark' ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.5)'
 
@@ -139,6 +149,37 @@ export default function TripMap({ days, visibleDays, activityEntries = [], showA
                     </span>
                   </>
                 )}
+              </Popup>
+            </Marker>
+          ))}
+        </LayerGroup>
+      )}
+      {showHotels && hotels.length > 0 && (
+        <LayerGroup key="hotels">
+          {hotels.map(hotel => (
+            <Marker
+              key={hotel.id}
+              position={toLeaflet(hotel.location.coordinates)}
+              icon={createHotelIcon(shadow)}
+            >
+              <Popup>
+                <strong>{hotel.name}</strong>
+                <br />
+                <span style={{ color: 'var(--color-muted)', fontSize: '0.875rem' }}>
+                  {hotel.city}
+                </span>
+                <br />
+                <span style={{ color: 'var(--color-muted)', fontSize: '0.75rem' }}>
+                  {hotel.location.address}
+                </span>
+                <br />
+                <span style={{ fontSize: '0.75rem' }}>
+                  Check-in {hotel.check_in} → Check-out {hotel.check_out}
+                </span>
+                <br />
+                <span style={{ fontSize: '0.75rem', fontFamily: 'monospace' }}>
+                  Conf# {hotel.confirmation_number}
+                </span>
               </Popup>
             </Marker>
           ))}

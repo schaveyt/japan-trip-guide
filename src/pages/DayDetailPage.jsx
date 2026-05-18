@@ -4,6 +4,9 @@ import { ReadingContainer } from '../components/Layout'
 import activitiesData from '../data/activities.json'
 import { NotesList } from '../components/journal/NotesList'
 import { PhotoGrid } from '../components/journal/PhotoGrid'
+import { RequireRole } from '../auth/RequireRole'
+import { useHotels } from '../hooks/useHotels'
+import { hotelForDate } from '../lib/hotelForDate'
 
 const TIME_PERIOD_LABELS = {
   morning: 'Morning',
@@ -19,6 +22,8 @@ export default function DayDetailPage() {
   const dayHasActivities = activitiesData.activities.days.some(
     d => d.day_number === day?.day_number
   )
+  const hotels = useHotels()
+  const hotel = day ? hotelForDate(day.date, hotels) : null
 
   if (!day) {
     return (
@@ -83,6 +88,21 @@ export default function DayDetailPage() {
             <span className="text-ink/40 group-hover:text-ink transition-colors">→</span>
           </Link>
         )}
+
+        {/* Hotel card — authenticated users only */}
+        <RequireRole role="guest">
+          {hotel && (
+            <div className="border border-ink/15 bg-paper px-5 py-4 mb-8">
+              <p className="text-xs uppercase tracking-widest text-muted mb-2">Tonight&apos;s Stay</p>
+              <p className="font-display text-lg font-bold text-ink mb-1">{hotel.name}</p>
+              <p className="text-muted text-sm mb-1">{hotel.location.address}</p>
+              <p className="text-muted text-sm mb-2">
+                Check-in {hotel.check_in} → Check-out {hotel.check_out}
+              </p>
+              <p className="font-mono text-xs text-ink/70">Conf# {hotel.confirmation_number}</p>
+            </div>
+          )}
+        </RequireRole>
 
         {/* Day-level journal (notes + photos) */}
         <NotesList entityType="day" entityId={`day-${day.day_number}`} />

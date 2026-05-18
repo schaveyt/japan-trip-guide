@@ -4,10 +4,14 @@ import TripMap from '../components/map/TripMap'
 import DayFilterBar from '../components/map/DayFilterBar'
 import itinerary from '../data/itinerary.json'
 import activitiesData from '../data/activities.json'
+import { useAuth } from '../auth/AuthProvider'
+import { useHotels } from '../hooks/useHotels'
 
 export default function MapPage() {
   const { trip } = itinerary
   const location = useLocation()
+  const { role } = useAuth()
+  const hotels = useHotels()
   const daysWithLocations = trip.days.filter(d =>
     d.activities.some(a => a.location)
   )
@@ -31,6 +35,7 @@ export default function MapPage() {
     d.entries.filter(e => e.location)
   )
   const [showActivities, setShowActivities] = useState(true)
+  const [showHotels, setShowHotels] = useState(true)
 
   return (
     <div className="flex flex-col h-[calc(100vh-4rem)] bg-paper">
@@ -47,18 +52,35 @@ export default function MapPage() {
         visibleDays={visibleDays}
         onToggle={toggleDay}
       />
-      <div className="px-4 py-2 border-b border-ink/10 flex items-center gap-3">
-        <span className="text-xs uppercase tracking-wider text-muted">Activities</span>
-        <button
-          onClick={() => setShowActivities(prev => !prev)}
-          className={`px-3 py-1.5 text-xs uppercase tracking-wider font-medium rounded-sm transition-colors ${
-            showActivities
-              ? 'bg-ink text-paper'
-              : 'bg-transparent text-muted border border-ink/20'
-          }`}
-        >
-          {showActivities ? 'Visible' : 'Hidden'}
-        </button>
+      <div className="px-4 py-2 border-b border-ink/10 flex items-center gap-4 flex-wrap">
+        <div className="flex items-center gap-3">
+          <span className="text-xs uppercase tracking-wider text-muted">Activities</span>
+          <button
+            onClick={() => setShowActivities(prev => !prev)}
+            className={`px-3 py-1.5 text-xs uppercase tracking-wider font-medium rounded-sm transition-colors ${
+              showActivities
+                ? 'bg-ink text-paper'
+                : 'bg-transparent text-muted border border-ink/20'
+            }`}
+          >
+            {showActivities ? 'Visible' : 'Hidden'}
+          </button>
+        </div>
+        {role !== null && (
+          <div className="flex items-center gap-3">
+            <span className="text-xs uppercase tracking-wider text-muted">Hotels</span>
+            <button
+              onClick={() => setShowHotels(prev => !prev)}
+              className={`px-3 py-1.5 text-xs uppercase tracking-wider font-medium rounded-sm transition-colors ${
+                showHotels
+                  ? 'bg-[#0F766E] text-white'
+                  : 'bg-transparent text-muted border border-ink/20'
+              }`}
+            >
+              {showHotels ? 'Visible' : 'Hidden'}
+            </button>
+          </div>
+        )}
       </div>
       <div className="flex-1">
         <TripMap
@@ -66,6 +88,8 @@ export default function MapPage() {
           visibleDays={visibleDays}
           activityEntries={allActivityEntries}
           showActivities={showActivities}
+          hotels={hotels}
+          showHotels={showHotels}
         />
       </div>
     </div>

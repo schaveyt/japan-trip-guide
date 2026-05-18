@@ -109,6 +109,11 @@ Key files:
 - `src/data/food-guide.json` — restaurant guide for `FoodPage`
 - `src/data/activities.json` — optional activities; IDs prefixed `act-` to avoid collision with itinerary activity IDs
 
+**Hotel data (Worker-side static, never in client bundle):**
+- `worker/hotels.js` — `HOTELS` array + `handleHotels()` request handler. Contains hotel names, cities, check-in/check-out dates, confirmation numbers, and GeoJSON coordinates. **IMPORTANT: confirmation numbers are sensitive — do not move this data into `src/data/` or any file that gets bundled into `dist/`.** Served only via `GET /api/hotels` after a valid session cookie.
+- Hotels: Hilton Fukuoka Sea Hawk (May 20–22), DoubleTree Osaka Castle (May 22–24), DoubleTree Kyoto Station (May 24–26), DoubleTree Tokyo Ariake (May 26–29).
+- Client-side: `src/hooks/useHotels.js` fetches from `/api/hotels` and caches in module state. `src/lib/hotelForDate.js` is a pure helper matching a date ISO string to the active hotel.
+
 **Dynamic (D1 + R2):**
 - Notes: `entity_type` + `entity_id` polymorphic FK. Day IDs: `day-{N}`. Itinerary activity IDs: e.g. `day3-fukuoka-castle`. Activities IDs: e.g. `act-day3-ohori-cycling`.
 - Photos: stored in R2 at `photos/{uuid}.jpg`. Served via `GET /api/photos/:id/bytes` (auth-checked). Client resizes to max 2048px JPEG before upload — see `src/lib/imageResize.js`.
