@@ -68,7 +68,7 @@ The Worker fronts both the API and the static SPA. `not_found_handling = "single
 
 ### Routing (`src/main.jsx`)
 
-Router defined entirely in `main.jsx`. `App.jsx` is unused. `AuthProvider` wraps the entire `RouterProvider`.
+Router defined entirely in `main.jsx`. `App.jsx` is unused. `ThemeProvider` is outermost, wrapping `AuthProvider`, which wraps `RouterProvider`.
 
 - `/login` — `LoginPage` (no bottom nav, top-level like Home)
 - `/` — `Home` (editorial cover page, **no** bottom nav)
@@ -114,25 +114,32 @@ Key files:
 - Photos: stored in R2 at `photos/{uuid}.jpg`. Served via `GET /api/photos/:id/bytes` (auth-checked). Client resizes to max 2048px JPEG before upload — see `src/lib/imageResize.js`.
 - Worker API: `src/lib/api.js` is the client-side fetch wrapper (handles credentials, `X-Author` header, error shapes).
 
+### Theme System
+
+3-state dark mode (`system` / `light` / `dark`) stored in `localStorage` under key `theme`.
+
+- `src/theme/ThemeProvider.jsx` — context (`theme`, `resolvedTheme`, `setTheme()`); sets `document.documentElement.dataset.theme`; listens to `prefers-color-scheme` media query for system sync
+- `src/components/ThemeToggle.jsx` — icon button cycling light → dark → system; used in `AuthBar` (all AppLayout pages) and floating in `Home` hero (top-right, visible when logged out)
+
 ### Design System
 
-Tailwind v4 with custom tokens in `src/index.css` under `@theme`:
+Tailwind v4 with custom tokens in `src/index.css` under `@theme`. Dark overrides declared in `[data-theme="dark"]` — all 5 color tokens flip automatically, no utility changes needed.
 
-| Token | Value | Usage |
+| Token | Light | Dark |
 |---|---|---|
-| `font-display` | Playfair Display | Headlines |
-| `font-body` | Roboto | Body text |
-| `color-ink` | `#1A1A1A` | Primary text |
-| `color-paper` | `#F8F7F4` | Page background |
-| `color-muted` | `#8B8680` | Secondary text |
-| `color-torii` | `#C73E3A` | Accents, active nav, published badge |
-| `color-link` | `#2B4C7E` | Links |
+| `color-ink` | `#1A1A1A` | `#EDEAE3` |
+| `color-paper` | `#F8F7F4` | `#16161A` |
+| `color-muted` | `#8B8680` | `#9A958E` |
+| `color-torii` | `#C73E3A` | `#E05551` |
+| `color-link` | `#2B4C7E` | `#7FA4D4` |
+
+`font-display` = Playfair Display (headlines), `font-body` = Roboto (body).
 
 Use `ReadingContainer` from `src/components/Layout.jsx` for all page body content (constrains to 45rem on desktop). Journal components (`NotesList`, `PhotoGrid`) are reusable — used on both `DayDetailPage` and `JournalPage`.
 
 ### Map
 
-`TripMap` (`src/components/map/TripMap.jsx`) uses CARTO Voyager tiles. Day markers color-coded by city: Fukuoka = torii red, Osaka = link blue, Kyoto = muted gray, Tokyo = ink.
+`TripMap` (`src/components/map/TripMap.jsx`) uses CARTO Voyager tiles in light mode and CARTO `dark_all` in dark mode — switched via `useTheme()` with `key={resolvedTheme}` on `<TileLayer>` to force a re-fetch. Day markers color-coded by city: Fukuoka = torii red, Osaka = link blue, Kyoto = muted gray, Tokyo = ink.
 
 **Known Leaflet gotcha:** Tailwind's base reset applies `max-width: 100%` to `img`, breaking map tile rendering. Fix already in `src/index.css`:
 ```css
