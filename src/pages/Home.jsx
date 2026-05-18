@@ -2,6 +2,7 @@ import { Link } from 'react-router'
 import HeroImage from '../components/HeroImage'
 import { ReadingContainer } from '../components/Layout'
 import { useAuth } from '../auth/AuthProvider'
+import ThemeToggle from '../components/ThemeToggle'
 import itinerary from '../data/itinerary.json'
 import foodGuide from '../data/food-guide.json'
 import pkg from '../../package.json'
@@ -31,20 +32,25 @@ export default function Home() {
     <div className="bg-paper min-h-screen font-body">
 
       {/* Hero — full-bleed Japan photo with editorial headline */}
-      <HeroImage
-        srcSet={japanHero}
-        alt="Tokyo street at dusk — Shibuya crossing"
-      >
-        <span className="text-sm uppercase tracking-widest text-white/70 mb-2 block">
-          May 2026 · Dad &amp; Son · v{pkg.version}
-        </span>
-        <h1 className="font-display text-4xl md:text-headline lg:text-hero font-bold leading-tight">
-          Japan
-        </h1>
-        <p className="mt-2 text-lg md:text-intro text-white/90">
-          {trip.duration_days} days across {route}
-        </p>
-      </HeroImage>
+      <div className="relative">
+        <HeroImage
+          srcSet={japanHero}
+          alt="Tokyo street at dusk — Shibuya crossing"
+        >
+          <span className="text-sm uppercase tracking-widest text-white/70 mb-2 block">
+            May 2026 · Dad &amp; Son · v{pkg.version}
+          </span>
+          <h1 className="font-display text-4xl md:text-headline lg:text-hero font-bold leading-tight">
+            Japan
+          </h1>
+          <p className="mt-2 text-lg md:text-intro text-white/90">
+            {trip.duration_days} days across {route}
+          </p>
+        </HeroImage>
+        <div className="absolute top-4 right-4 z-20">
+          <ThemeToggle className="p-2 rounded-full bg-paper/40 backdrop-blur-sm" />
+        </div>
+      </div>
 
       {/* Content — reading-width container */}
       <ReadingContainer className="py-16">

@@ -5,6 +5,7 @@ import { registerSW } from 'virtual:pwa-register'
 import './index.css'
 import 'leaflet/dist/leaflet.css'
 import { AuthProvider } from './auth/AuthProvider'
+import { ThemeProvider } from './theme/ThemeProvider'
 import AuthBar from './components/AuthBar'
 import BottomNav from './components/BottomNav'
 import OfflineIndicator from './components/OfflineIndicator'
@@ -63,8 +64,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </ThemeProvider>
   </StrictMode>,
 )

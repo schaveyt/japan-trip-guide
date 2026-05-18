@@ -2,6 +2,7 @@ import { MapContainer, TileLayer, Marker, Popup, LayerGroup } from 'react-leafle
 import { divIcon } from 'leaflet'
 import { useMap } from 'react-leaflet'
 import { useEffect } from 'react'
+import { useTheme } from '../../theme/ThemeProvider'
 
 const JAPAN_CENTER = [36.2048, 138.2529]
 const JAPAN_ZOOM = 6
@@ -24,10 +25,10 @@ const DAY_COLORS = {
   10: '#1A1A1A',
 }
 
-function createDayIcon(dayNum) {
+function createDayIcon(dayNum, shadow) {
   const color = DAY_COLORS[dayNum] || '#1A1A1A'
   return divIcon({
-    html: `<div style="width:12px;height:12px;border-radius:50%;background:${color};border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.5)"></div>`,
+    html: `<div style="width:12px;height:12px;border-radius:50%;background:${color};border:2px solid white;box-shadow:0 1px 4px ${shadow}"></div>`,
     className: '',
     iconSize: [12, 12],
     iconAnchor: [6, 6],
@@ -35,9 +36,9 @@ function createDayIcon(dayNum) {
   })
 }
 
-function createActivityIcon() {
+function createActivityIcon(shadow) {
   return divIcon({
-    html: `<div style="width:10px;height:10px;border-radius:2px;background:#C73E3A;border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.5)"></div>`,
+    html: `<div style="width:10px;height:10px;border-radius:2px;background:#C73E3A;border:2px solid white;box-shadow:0 1px 4px ${shadow}"></div>`,
     className: '',
     iconSize: [10, 10],
     iconAnchor: [5, 5],
@@ -55,7 +56,15 @@ function BoundsFitter({ coordinates }) {
   return null
 }
 
+const TILE_URLS = {
+  light: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+  dark:  'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+}
+
 export default function TripMap({ days, visibleDays, activityEntries = [], showActivities = false }) {
+  const { resolvedTheme } = useTheme()
+  const shadow = resolvedTheme === 'dark' ? 'rgba(255,255,255,0.4)' : 'rgba(0,0,0,0.5)'
+
   const daysWithLocations = days.filter(d =>
     d.activities.some(a => a.location)
   )
@@ -72,8 +81,9 @@ export default function TripMap({ days, visibleDays, activityEntries = [], showA
       zoomControl={true}
     >
       <TileLayer
+        key={resolvedTheme}
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-        url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+        url={TILE_URLS[resolvedTheme]}
       />
       <BoundsFitter coordinates={allCoordinates} />
       {daysWithLocations.map(day =>
@@ -85,18 +95,18 @@ export default function TripMap({ days, visibleDays, activityEntries = [], showA
                 <Marker
                   key={activity.id}
                   position={toLeaflet(activity.location.coordinates)}
-                  icon={createDayIcon(day.day_number)}
+                  icon={createDayIcon(day.day_number, shadow)}
                 >
                   <Popup>
                     <strong>{activity.name}</strong>
                     <br />
-                    <span style={{ color: '#8B8680', fontSize: '0.875rem' }}>
+                    <span style={{ color: 'var(--color-muted)', fontSize: '0.875rem' }}>
                       {activity.location.name}
                     </span>
                     {activity.location.address && (
                       <>
                         <br />
-                        <span style={{ color: '#8B8680', fontSize: '0.75rem' }}>
+                        <span style={{ color: 'var(--color-muted)', fontSize: '0.75rem' }}>
                           {activity.location.address}
                         </span>
                       </>
@@ -113,18 +123,18 @@ export default function TripMap({ days, visibleDays, activityEntries = [], showA
             <Marker
               key={entry.id}
               position={toLeaflet(entry.location.coordinates)}
-              icon={createActivityIcon()}
+              icon={createActivityIcon(shadow)}
             >
               <Popup>
                 <strong>{entry.name}</strong>
                 <br />
-                <span style={{ color: '#8B8680', fontSize: '0.875rem' }}>
+                <span style={{ color: 'var(--color-muted)', fontSize: '0.875rem' }}>
                   {entry.location.name}
                 </span>
                 {entry.location.address && (
                   <>
                     <br />
-                    <span style={{ color: '#8B8680', fontSize: '0.75rem' }}>
+                    <span style={{ color: 'var(--color-muted)', fontSize: '0.75rem' }}>
                       {entry.location.address}
                     </span>
                   </>

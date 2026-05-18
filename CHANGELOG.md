@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.2.0] - 2026-05-18
+
+### Added
+- **Dark mode** — 3-state theme toggle (`system` / `light` / `dark`) stored in `localStorage`; defaults to OS preference via `prefers-color-scheme`
+- **Theme toggle** — floating button in the Home hero (top-right) and inline in the AuthBar on all other pages; cycles sun → moon → monitor icons
+- **Dark palette** — warm off-black surface (`#16161A`), off-white text (`#EDEAE3`), lifted muted (`#9A958E`), brightened torii red (`#E05551`), accessible link blue (`#7FA4D4`)
+- **Dark map tiles** — CARTO `dark_all` tiles load automatically when dark mode is active; pin shadows invert for legibility
+- **Browser chrome sync** — dual `theme-color` meta tags for iOS Safari / Android Chrome address bar; manual override injected dynamically
+
+### Changed
+- Body gains a `200ms` background/color cross-fade transition on theme switch
+- Map popup labels now use `var(--color-muted)` token instead of hardcoded hex
+- Error page muted text now uses `text-muted` class instead of hardcoded `#999`
+
 ## [1.1.0] - 2026-05-18
 
 ### Added

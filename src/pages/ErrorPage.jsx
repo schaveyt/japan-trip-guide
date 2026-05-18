@@ -7,7 +7,7 @@ export default function ErrorPage() {
     <div style={{ padding: '2rem', fontFamily: 'system-ui' }}>
       <h1>Oops!</h1>
       <p>Sorry, an unexpected error has occurred.</p>
-      <p style={{ color: '#999' }}>
+      <p className="text-muted">
         <i>{error.statusText || error.message}</i>
       </p>
       <Link to="/">Go back home</Link>

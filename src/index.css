@@ -41,7 +41,20 @@
   --space-element: 2.5rem;
 }
 
-/* 4. Base styles — applied globally */
+/* 4. Dark mode token overrides — flip the 5 palette tokens on dark surface */
+[data-theme="dark"] {
+  --color-paper: #16161A;
+  --color-ink: #EDEAE3;
+  --color-muted: #9A958E;
+  --color-torii: #E05551;
+  --color-link: #7FA4D4;
+}
+
+[data-theme="dark"] body {
+  color-scheme: dark;
+}
+
+/* 5. Base styles — applied globally */
 body {
   font-family: var(--font-body);
   background-color: var(--color-paper);
@@ -51,6 +64,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
+  transition: background-color 200ms, color 200ms;
 }
 
 a {

@@ -1,5 +1,6 @@
 import { Link } from 'react-router'
 import { useAuth } from '../auth/AuthProvider'
+import ThemeToggle from './ThemeToggle'
 
 export default function AuthBar() {
   const { role, whoAmI, logout, loading } = useAuth()
@@ -21,22 +22,28 @@ export default function AuthBar() {
               <span className="text-muted uppercase tracking-wider">Guest</span>
             )}
           </p>
-          <button
-            onClick={logout}
-            className="text-xs uppercase tracking-wider text-muted hover:text-ink transition-colors"
-          >
-            Sign out
-          </button>
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            <button
+              onClick={logout}
+              className="text-xs uppercase tracking-wider text-muted hover:text-ink transition-colors"
+            >
+              Sign out
+            </button>
+          </div>
         </>
       ) : (
         <>
           <p className="text-xs text-muted uppercase tracking-wider">Not signed in</p>
-          <Link
-            to="/login"
-            className="text-xs uppercase tracking-wider text-link hover:text-ink transition-colors"
-          >
-            Sign in →
-          </Link>
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            <Link
+              to="/login"
+              className="text-xs uppercase tracking-wider text-link hover:text-ink transition-colors"
+            >
+              Sign in →
+            </Link>
+          </div>
         </>
       )}
     </div>
