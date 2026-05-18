@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { useAuth } from '../auth/AuthProvider'
+import { useAuth } from '../auth/useAuth'
 import ThemeToggle from './ThemeToggle'
 
 export default function AuthBar() {

@@ -4,7 +4,7 @@ import TripMap from '../components/map/TripMap'
 import DayFilterBar from '../components/map/DayFilterBar'
 import itinerary from '../data/itinerary.json'
 import activitiesData from '../data/activities.json'
-import { useAuth } from '../auth/AuthProvider'
+import { useAuth } from '../auth/useAuth'
 import { useHotels } from '../hooks/useHotels'
 
 export default function MapPage() {

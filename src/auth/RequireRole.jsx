@@ -1,4 +1,4 @@
-import { useAuth } from './AuthProvider'
+import { useAuth } from './useAuth'
 
 const ROLE_ORDER = ['guest', 'traveler']
 

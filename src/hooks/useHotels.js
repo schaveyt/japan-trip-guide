@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useAuth } from '../auth/AuthProvider'
+import { useAuth } from '../auth/useAuth'
 import { api } from '../lib/api'
 
 // Module-level cache — fetched once per session, shared across all hook instances

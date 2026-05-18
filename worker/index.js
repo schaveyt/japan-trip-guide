@@ -2,7 +2,7 @@ import { handleNotes } from './notes.js'
 import { handlePhotos } from './photos.js'
 import { handleHotels } from './hotels.js'
 import { getSession, issueSession, clearSessionCookie, timingSafeEqual, checkRateLimit } from './auth.js'
-import { jsonResponse, badRequest, tooManyRequests, noContent } from './util.js'
+import { jsonResponse, badRequest, tooManyRequests } from './util.js'
 
 async function handleApi(req, env, url) {
   const isSecure = url.protocol === 'https:'

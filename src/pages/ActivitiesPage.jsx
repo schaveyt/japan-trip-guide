@@ -27,11 +27,11 @@ export default function ActivitiesPage() {
 
   const dayRefs = useRef({})
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (targetDay && dayRefs.current[targetDay]) {
       dayRefs.current[targetDay].scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const toggleDay = (dayNumber) => {

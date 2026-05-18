@@ -1,4 +1,4 @@
-import { useTheme } from '../theme/ThemeProvider'
+import { useTheme } from '../theme/useTheme'
 
 const CYCLE = { light: 'dark', dark: 'system', system: 'light' }
 const LABELS = { light: 'Light mode', dark: 'Dark mode', system: 'System mode' }

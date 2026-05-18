@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { useAuth } from '../../auth/AuthProvider'
+import { useAuth } from '../../auth/useAuth'
 import { RequireRole } from '../../auth/RequireRole'
 import { api } from '../../lib/api'
 import { resizeAndEncodeImage } from '../../lib/imageResize'

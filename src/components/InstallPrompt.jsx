@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react'
 export default function InstallPrompt() {
   const [deferredPrompt, setDeferredPrompt] = useState(null)
   const [showBanner, setShowBanner] = useState(false)
-  const [isIOS, setIsIOS] = useState(false)
+  const [isIOS] = useState(() => /iphone|ipad|ipod/i.test(navigator.userAgent))
 
   useEffect(() => {
     // Don't show if already dismissed or installed
@@ -18,11 +18,7 @@ export default function InstallPrompt() {
     // Check if running in standalone mode (already installed)
     if (window.matchMedia('(display-mode: standalone)').matches) return
 
-    // Detect iOS (Safari does not support beforeinstallprompt)
-    const ios = /iphone|ipad|ipod/i.test(navigator.userAgent)
-
-    if (ios) {
-      setIsIOS(true)
+    if (isIOS) {
       // Track visits — show iOS hint on second visit after 30s
       const visitCount = parseInt(localStorage.getItem('pwa-visit-count') || '0') + 1
       localStorage.setItem('pwa-visit-count', String(visitCount))
@@ -48,12 +44,12 @@ export default function InstallPrompt() {
     localStorage.setItem('pwa-visit-count', String(visitCount))
 
     return () => window.removeEventListener('beforeinstallprompt', handler)
-  }, [])
+  }, [isIOS])
 
   const handleInstall = async () => {
     if (!deferredPrompt) return
     deferredPrompt.prompt()
-    const { outcome } = await deferredPrompt.userChoice
+    await deferredPrompt.userChoice
     // Whether accepted or dismissed, don't show again
     localStorage.setItem('pwa-install-dismissed', '1')
     setShowBanner(false)

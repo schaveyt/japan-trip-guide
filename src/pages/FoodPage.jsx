@@ -24,11 +24,11 @@ export default function FoodPage() {
   const cityRefs = useRef({})
 
   // Scroll to the target city after mount (runs once; no-op if no targetCity)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (targetCity && cityRefs.current[targetCity]) {
       cityRefs.current[targetCity].scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // Collect all unique types across all restaurants for filter buttons

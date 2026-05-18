@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router'
-import { useAuth } from '../auth/AuthProvider'
+import { useAuth } from '../auth/useAuth'
 import { ReadingContainer } from '../components/Layout'
 import { NotesList } from '../components/journal/NotesList'
 import { PhotoGrid } from '../components/journal/PhotoGrid'

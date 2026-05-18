@@ -2,7 +2,7 @@ import { MapContainer, TileLayer, Marker, Popup, LayerGroup } from 'react-leafle
 import { divIcon } from 'leaflet'
 import { useMap } from 'react-leaflet'
 import { useEffect } from 'react'
-import { useTheme } from '../../theme/ThemeProvider'
+import { useTheme } from '../../theme/useTheme'
 
 const JAPAN_CENTER = [36.2048, 138.2529]
 const JAPAN_ZOOM = 6
@@ -62,7 +62,8 @@ function BoundsFitter({ coordinates }) {
   useEffect(() => {
     if (coordinates.length < 2) return
     map.fitBounds(coordinates.map(toLeaflet), { padding: [40, 40] })
-  }, [map]) // run once on mount only
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [map]) // intentional: fit once on mount, ignore subsequent coordinate changes
   return null
 }
 

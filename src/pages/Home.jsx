@@ -1,7 +1,7 @@
 import { Link } from 'react-router'
 import HeroImage from '../components/HeroImage'
 import { ReadingContainer } from '../components/Layout'
-import { useAuth } from '../auth/AuthProvider'
+import { useAuth } from '../auth/useAuth'
 import ThemeToggle from '../components/ThemeToggle'
 import itinerary from '../data/itinerary.json'
 import foodGuide from '../data/food-guide.json'

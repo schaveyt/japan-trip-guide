@@ -54,11 +54,11 @@ const JournalIcon = () => (
 )
 
 const TABS = [
-  { label: 'TODAY',     path: '/today',      icon: TodayIcon },
-  { label: 'ITINERARY', path: '/itinerary',  icon: ItineraryIcon },
-  { label: 'MAP',       path: '/map',         icon: MapIcon },
-  { label: 'FOOD',      path: '/food',        icon: FoodIcon },
-  { label: 'JOURNAL',   path: '/journal',     icon: JournalIcon },
+  { label: 'TODAY',     path: '/today',      icon: <TodayIcon /> },
+  { label: 'ITINERARY', path: '/itinerary',  icon: <ItineraryIcon /> },
+  { label: 'MAP',       path: '/map',         icon: <MapIcon /> },
+  { label: 'FOOD',      path: '/food',        icon: <FoodIcon /> },
+  { label: 'JOURNAL',   path: '/journal',     icon: <JournalIcon /> },
 ]
 
 export default function BottomNav() {
@@ -70,7 +70,7 @@ export default function BottomNav() {
       style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
       aria-label="Main navigation"
     >
-      {TABS.map(({ label, path, icon: Icon }) => {
+      {TABS.map(({ label, path, icon }) => {
         const isActive = pathname === path || pathname.startsWith(path + '/')
         return (
           <Link
@@ -81,7 +81,7 @@ export default function BottomNav() {
             }`}
             aria-current={isActive ? 'page' : undefined}
           >
-            <Icon />
+            {icon}
             <span className="text-[10px] uppercase tracking-wider font-medium">{label}</span>
           </Link>
         )

@@ -1,7 +1,6 @@
-import { createContext, useContext, useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { api } from '../lib/api'
-
-const AuthContext = createContext(null)
+import { AuthContext } from './AuthContext'
 
 export function AuthProvider({ children }) {
   const [role, setRole] = useState(null)
@@ -41,6 +40,3 @@ export function AuthProvider({ children }) {
   )
 }
 
-export function useAuth() {
-  return useContext(AuthContext)
-}
