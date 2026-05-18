@@ -80,25 +80,6 @@
             }
           },
           {
-            "id": "day2-checkin",
-            "time_period": "evening",
-            "type": "arrival",
-            "name": "Check into hotel near Hakata Station",
-            "description": "Drop bags at hotel in central area",
-            "notes": [
-              "Central location",
-              "Convenient for transit"
-            ],
-            "location": {
-              "name": "Hakata Station Area",
-              "coordinates": [
-                130.4212,
-                33.5904
-              ],
-              "address": "Hakata Station, Fukuoka"
-            }
-          },
-          {
             "id": "day2-dinner",
             "time_period": "evening",
             "type": "food",
@@ -269,24 +250,6 @@
             "location": null
           },
           {
-            "id": "day4-checkin-osaka",
-            "time_period": "afternoon",
-            "type": "arrival",
-            "name": "Check into Osaka hotel",
-            "description": "Hotel in Namba area (walking distance to everything)",
-            "notes": [
-              "Central Osaka location"
-            ],
-            "location": {
-              "name": "Namba District",
-              "coordinates": [
-                135.5017,
-                34.6658
-              ],
-              "address": "Namba, Osaka"
-            }
-          },
-          {
             "id": "day4-dotonbori",
             "time_period": "evening",
             "type": "food",
@@ -344,9 +307,9 @@
           {
             "id": "day5-evening-rest",
             "time_period": "evening",
-            "type": "arrival",
-            "name": "Return to hotel and rest",
-            "description": "Light dinner near hotel if hungry",
+            "type": "rest",
+            "name": "Rest and light dinner",
+            "description": "Easy evening after a full park day",
             "notes": [
               "Rest up after full park day"
             ],
@@ -389,8 +352,7 @@
             "name": "Train to Kyoto",
             "description": "Short train ride from Namba to Kyoto",
             "notes": [
-              "~15 minutes",
-              "Check into hotel near Kyoto Station or Gion"
+              "~15 minutes"
             ],
             "location": null
           },
@@ -706,7 +668,7 @@
             "time_period": "afternoon",
             "type": "arrival",
             "name": "Pack and prep for departure",
-            "description": "Final packing, last-minute shopping, head to airport area hotel if needed",
+            "description": "Final packing, last-minute shopping",
             "notes": [
               "Check airline baggage allowances",
               "Ship any extra luggage via Yamato if overweight"
@@ -718,7 +680,7 @@
             "time_period": "evening",
             "type": "travel",
             "name": "Head to Narita or Haneda Airport",
-            "description": "Check in for overnight/early departure",
+            "description": "Airport check-in for early morning departure",
             "notes": [
               "Narita: ~1hr by Narita Express from Tokyo Station",
               "Haneda: ~30 min by monorail or Keikyu line",
