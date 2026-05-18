@@ -4,19 +4,38 @@ import tailwindcss from '@tailwindcss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
+  server: {
+    proxy: {
+      // In dev, proxy /api calls to wrangler dev running on port 8787
+      '/api': {
+        target: 'http://localhost:8787',
+        changeOrigin: true,
+      },
+    },
+  },
   plugins: [
     react(),
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
       workbox: {
-        // Precache all app shell assets + images
-        // JSON data is statically bundled into JS chunks, so it's covered by js/css/html
-        // Note: excludes source-japan.jpg (build artifact, not deployed as-is)
         globPatterns: ['**/*.{js,css,html,svg,png,webp,ico,woff,woff2}', 'images/japan-hero-*.jpg'],
-        // Runtime caching: CARTO map tiles (StaleWhileRevalidate with size cap)
-        // CARTO URL format: https://{a|b|c}.basemaps.cartocdn.com/...
+        // Prevent the SPA shell (index.html) from being served for /api/* requests
+        navigateFallbackDenylist: [/^\/api/],
         runtimeCaching: [
+          // Photo bytes are immutable per ID — safe to cache aggressively
+          {
+            urlPattern: /^\/api\/photos\/[^/]+\/bytes$/,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'photo-cache',
+              expiration: {
+                maxEntries: 200,
+                maxAgeSeconds: 60 * 60 * 24 * 30,
+              },
+              cacheableResponse: { statuses: [200] },
+            },
+          },
           // Google Fonts stylesheet (fonts.googleapis.com)
           // StaleWhileRevalidate: serve cached CSS quickly, refresh in background
           // The stylesheet lists which font files to fetch — short TTL so updates propagate

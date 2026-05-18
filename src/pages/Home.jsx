@@ -1,6 +1,7 @@
 import { Link } from 'react-router'
 import HeroImage from '../components/HeroImage'
 import { ReadingContainer } from '../components/Layout'
+import { useAuth } from '../auth/AuthProvider'
 import itinerary from '../data/itinerary.json'
 import foodGuide from '../data/food-guide.json'
 import pkg from '../../package.json'
@@ -21,6 +22,7 @@ const japanHero = {
 
 export default function Home() {
   const { trip } = itinerary
+  const { role, whoAmI, logout } = useAuth()
   const route = trip.route.join(' → ')
   const firstRestaurant = foodGuide.cities[0].restaurants[0].name
   const lastDay = trip.days[trip.days.length - 1]
@@ -132,6 +134,45 @@ export default function Home() {
             </div>
             <span className="text-ink/40 group-hover:text-ink transition-colors text-xl">→</span>
           </Link>
+        </section>
+
+        {/* Auth section */}
+        <section className="mb-12">
+          {role ? (
+            <div className="flex items-center justify-between px-5 py-4 border border-ink/20">
+              <div>
+                <p className="text-xs uppercase tracking-wider text-muted mb-0.5">Signed in</p>
+                {role === 'traveler' ? (
+                  <>
+                    <p className="font-body font-medium text-ink capitalize">{whoAmI || 'Traveler'}</p>
+                    <p className="text-xs mt-0.5 uppercase tracking-wider text-torii">Full access</p>
+                  </>
+                ) : (
+                  <>
+                    <p className="font-body font-medium text-ink">Guest</p>
+                    <p className="text-xs mt-0.5 uppercase tracking-wider text-muted">Read only</p>
+                  </>
+                )}
+              </div>
+              <button
+                onClick={logout}
+                className="text-xs uppercase tracking-wider text-muted hover:text-ink transition-colors border border-ink/20 hover:border-ink/60 px-3 py-1.5"
+              >
+                Sign out
+              </button>
+            </div>
+          ) : (
+            <Link
+              to="/login"
+              className="flex items-center justify-between px-5 py-4 border border-ink/20 hover:border-ink/60 transition-colors group"
+            >
+              <div>
+                <p className="font-display font-bold text-ink text-lg">Sign In</p>
+                <p className="text-muted text-sm mt-0.5">Access the trip journal &amp; photos</p>
+              </div>
+              <span className="text-ink/40 group-hover:text-ink transition-colors text-xl">→</span>
+            </Link>
+          )}
         </section>
 
         {/* Footer */}

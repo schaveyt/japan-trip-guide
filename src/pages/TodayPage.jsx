@@ -2,6 +2,8 @@ import itinerary from '../data/itinerary.json'
 import { ReadingContainer } from '../components/Layout'
 import { Link } from 'react-router'
 import activitiesData from '../data/activities.json'
+import { NotesList } from '../components/journal/NotesList'
+import { PhotoGrid } from '../components/journal/PhotoGrid'
 
 const { trip } = itinerary
 
@@ -264,6 +266,10 @@ function InTripState({ day }) {
           ))}
         </div>
       )}
+
+      {/* Day journal */}
+      <NotesList entityType="day" entityId={`day-${day.day_number}`} />
+      <PhotoGrid entityType="day" entityId={`day-${day.day_number}`} />
 
       {/* Link to full day detail */}
       <div className="mt-8 pt-6 border-t border-ink/10">

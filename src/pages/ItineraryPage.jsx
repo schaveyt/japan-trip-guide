@@ -1,6 +1,9 @@
 import { Link } from 'react-router'
 import itinerary from '../data/itinerary.json'
 import { ReadingContainer } from '../components/Layout'
+import activitiesData from '../data/activities.json'
+
+const totalActivities = activitiesData.activities.days.reduce((sum, d) => sum + d.entries.length, 0)
 
 export default function ItineraryPage() {
   const { trip } = itinerary
@@ -18,6 +21,18 @@ export default function ItineraryPage() {
         <p className="text-muted text-sm uppercase tracking-wider mb-6">
           {trip.route.join(' → ')}
         </p>
+
+        {/* Activities card — replaces the ACTIVE bottom nav tab */}
+        <Link
+          to="/activities"
+          className="flex items-center justify-between px-4 py-3 border border-ink/20 hover:border-ink/60 transition-colors group mb-8 text-sm"
+        >
+          <div>
+            <p className="font-display font-bold text-ink">Optional Activities</p>
+            <p className="text-muted text-sm mt-0.5">{totalActivities} activities across the trip</p>
+          </div>
+          <span className="text-ink/40 group-hover:text-ink transition-colors">→</span>
+        </Link>
 
         <ul>
           {trip.days.map(day => (

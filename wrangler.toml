@@ -1,5 +1,18 @@
 name = "japan-trip-guide"
+main = "worker/index.js"
 compatibility_date = "2026-02-28"
+account_id = "20238cbeed04da3ab6882c573f324f0e"
 
 [assets]
 directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "japan-trip"
+database_id = "a10d67c2-7880-4073-90bf-94818d763225"
+
+[[r2_buckets]]
+binding = "PHOTOS"
+bucket_name = "japan-trip-photos"

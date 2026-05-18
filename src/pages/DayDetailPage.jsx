@@ -2,6 +2,8 @@ import { useParams, Link } from 'react-router'
 import itinerary from '../data/itinerary.json'
 import { ReadingContainer } from '../components/Layout'
 import activitiesData from '../data/activities.json'
+import { NotesList } from '../components/journal/NotesList'
+import { PhotoGrid } from '../components/journal/PhotoGrid'
 
 const TIME_PERIOD_LABELS = {
   morning: 'Morning',
@@ -81,6 +83,10 @@ export default function DayDetailPage() {
             <span className="text-ink/40 group-hover:text-ink transition-colors">→</span>
           </Link>
         )}
+
+        {/* Day-level journal (notes + photos) */}
+        <NotesList entityType="day" entityId={`day-${day.day_number}`} />
+        <PhotoGrid entityType="day" entityId={`day-${day.day_number}`} />
 
         {/* Activity groups by time period */}
         {activityGroups.map(group => (
