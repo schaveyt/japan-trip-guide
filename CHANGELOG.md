@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.3.1] - 2026-05-18
+
+### Changed
+- **Day 2 (May 20) itinerary** — expanded arrival day: added IC card/subway notes, Tenjin Underground City as optional evening activity, upgraded dinner to name Ichiran Ramen HQ and Canal City Ramen Stadium as specific options
+- **Day 3 (May 21) itinerary** — restructured as "Okagaki Active Day Trip": JR train to Ebitsu Station, 12 km coastal cycling on Sanri Matsubara (bike rental details + pricing), Mt. Yukawa hike (470m, Ghost Slope, Narita-san Fudoji temple en route), SUP & surfing at RUN'A WAVE surf school (phone + website included); Ichiran and Canal City Ramen Stadium kept as city-day alternatives; yatai evening kept
+- **Day 4 (May 22) itinerary** — added Ohori Park cycling loop as early morning activity before checkout/shinkansen; moved from Day 3
+
 ## [1.3.0] - 2026-05-18
 
 ### Added

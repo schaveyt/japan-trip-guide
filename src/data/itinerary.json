@@ -64,96 +64,158 @@
             "id": "day2-arrive",
             "time_period": "evening",
             "type": "arrival",
-            "name": "Arrive Fukuoka Airport",
-            "description": "Land at FUK, clear customs",
+            "name": "Arrive Fukuoka Airport (~5 PM)",
+            "description": "Land at FUK, clear customs, grab IC card, subway to Hakata — 5 stops, 11 minutes.",
             "notes": [
-              "Jet-lagged",
-              "Evening arrival"
+              "Subway: Kuko Line from FUK → Hakata Station — ¥260, runs every 5–8 min",
+              "Get a Suica or ICOCA IC card at the airport — works on all trains, buses, and convenience stores for the whole trip",
+              "Hilton Fukuoka Sea Hawk is ~15 min taxi from Hakata Station or short subway hop"
             ],
             "location": {
               "name": "Fukuoka Airport (FUK)",
-              "coordinates": [
-                130.4461,
-                33.5859
-              ],
+              "coordinates": [130.4461, 33.5859],
               "address": "Fukuoka Airport, Fukuoka"
+            }
+          },
+          {
+            "id": "day2-tenjin",
+            "time_period": "evening",
+            "type": "shopping",
+            "name": "Tenjin Underground City (optional)",
+            "description": "Japan's largest underground shopping arcade, 20 min from the airport by subway. Good for stretching legs and grabbing anything you forgot — or just absorbing that you are in Japan.",
+            "notes": [
+              "Most stores open until 8–9 PM",
+              "Subway: Kuko Line → Tenjin Station, ¥300 from airport",
+              "Skip without guilt if the flight wrecked you — Day 3 Okagaki is the priority"
+            ],
+            "location": {
+              "name": "Tenjin Underground City",
+              "coordinates": [130.4017, 33.5904],
+              "address": "Tenjin, Chuo Ward, Fukuoka"
             }
           },
           {
             "id": "day2-dinner",
             "time_period": "evening",
             "type": "food",
-            "name": "First tonkotsu ramen",
-            "description": "Light dinner at local ramen shop near station",
+            "name": "First ramen in Japan",
+            "description": "The real deal, straight off the plane. Ichiran Ramen HQ is the top pick — original location with the iconic solo booth system and fully customizable tonkotsu broth. Canal City Ramen Stadium is the backup if Ichiran has a wait, with 8 regional ramen styles on the 5th floor.",
             "notes": [
-              "Easy option: Ippudo or Shin Shin",
-              "Keep it simple",
-              "Early to bed after"
+              "Ichiran Ramen HQ: near Canal City Hakata — customize spice level (try 3+), order kaedama for extra noodles",
+              "Canal City Ramen Stadium: 5th floor, 8 regional shops — try miso or shoyu to contrast tonkotsu",
+              "Ippudo or Shin Shin are simpler fallbacks closer to Hakata Station",
+              "Keep dinner easy and get to bed — jet lag hits hard on Night 1"
             ],
-            "location": null
+            "location": {
+              "name": "Ichiran Ramen Headquarters",
+              "coordinates": [130.4084, 33.5915],
+              "address": "Near Canal City Hakata, Fukuoka"
+            }
           }
         ]
       },
       {
         "day_number": 3,
         "date": "2026-05-21",
-        "title": "Fukuoka Food Day",
+        "title": "Okagaki Active Day Trip",
         "cities": [
-          "Fukuoka"
+          "Fukuoka",
+          "Okagaki"
         ],
         "travel_day": false,
         "activities": [
           {
-            "id": "day3-ohori-cycling",
+            "id": "day3-jr-to-okagaki",
+            "time_period": "morning",
+            "type": "travel",
+            "name": "JR train to Okagaki (Ebitsu Station)",
+            "description": "Hop on the JR Kagoshima Main Line from Hakata Station north to Ebitsu Station — the gateway to the Okagaki coast and Sanri Matsubara.",
+            "notes": [
+              "~45–50 min from Hakata Station, trains run frequently",
+              "Fare: ~¥770 each way; IC card (Suica/ICOCA) works",
+              "Tourist Station Hokutochisei is a short ride from the station — the hub for bike rental and BBQ"
+            ],
+            "location": {
+              "name": "JR Ebitsu Station (Okagaki)",
+              "coordinates": [130.617, 33.855],
+              "address": "Ebitsu, Okagaki-machi, Onga-gun, Fukuoka"
+            }
+          },
+          {
+            "id": "day3-coastal-cycling",
             "time_period": "morning",
             "type": "sightseeing",
-            "name": "Ohori Park cycling loop",
-            "description": "Rent a bike at Ohori Park and do laps around the 2.7 km lake circuit. Flat, scenic, and crowd-free in the early morning — a great way to shake off jet lag before the food crawl begins.",
+            "name": "Coastal Cycling — Sanri Matsubara",
+            "description": "Rent bikes at Tourist Station Hokutochisei and cruise the 12 km dedicated cycling path through the Sanri Matsubara pine forest along the Hibiki Sea coast. E-bikes, sports bikes, and tandems available. Flat, shaded, and scenic with breakwater art photo spots along the route.",
             "notes": [
-              "Rentals at park entrance, ~1,000–1,500 ¥/hr, no booking needed",
-              "20–30 min per loop; 2 laps is a comfortable morning stretch",
-              "15-min walk or short taxi from Hakata Station"
+              "Bike rental hub: Tourist Station Hokutochisei — no reservation needed",
+              "E-bike: ¥1,000 (3 hr) / ¥1,500 (all day)",
+              "Sports bike: ¥800 (3 hr) / ¥1,200 (all day)",
+              "Regular bike: ¥300 (3 hr) / ¥500 (all day)",
+              "Hours: 9:00–17:00 (last rental 16:00), closed Wednesdays",
+              "Phone: 093-281-5050",
+              "Path stretches 12 km toward Munakata City — flat, coastal, shaded by 300-year-old pines",
+              "Watch for 'breakwater art' Instagram spots along the route"
             ],
             "location": {
-              "name": "Ohori Park",
-              "coordinates": [130.4015, 33.5844],
-              "address": "1-2 Ohori Park, Chuo-ku, Fukuoka 810-0051"
+              "name": "Tourist Station Hokutochisei (Bike Rental Hub)",
+              "coordinates": [130.616, 33.856],
+              "address": "670-34 Hara, Okagaki-machi, Onga-gun, Fukuoka 811-4202"
             }
           },
           {
-            "id": "day3-morning-tenjin",
-            "time_period": "morning",
-            "type": "shopping",
-            "name": "Explore Tenjin shopping district",
-            "description": "Japan's largest underground shopping mall",
+            "id": "day3-yukawa-hike",
+            "time_period": "afternoon",
+            "type": "hiking",
+            "name": "Mt. Yukawa Hike",
+            "description": "470m peak on the Okagaki–Munakata border. The summit delivers a panoramic sweep of the entire Sanri Matsubara coastline — blue Hibiki Sea, white sand, and the pine forest you just cycled through. Narita-san Fudoji temple sits partway up at ~200m elevation with its own views. En route: 'Ghost Slope' (ゆうれい坂), the famous optical illusion where cans appear to roll uphill.",
             "notes": [
-              "Good for stretching legs after travel"
+              "~2–3 hours round trip at an easy-moderate pace",
+              "Stop at Ghost Slope on the road up — roll an empty can and watch it 'climb'",
+              "Narita-san Fudoji temple at mid-elevation is a worthwhile break",
+              "Summit view covers the full 12 km coastline you rode earlier",
+              "Trail is forested and shaded — bring water, low 80s°F + humidity"
             ],
             "location": {
-              "name": "Tenjin Underground City",
-              "coordinates": [
-                130.4017,
-                33.5904
-              ],
-              "address": "Tenjin, Chuo Ward, Fukuoka"
+              "name": "Mt. Yukawa (湯川山)",
+              "coordinates": [130.622, 33.863],
+              "address": "Okagaki-machi / Munakata City border, Fukuoka"
             }
           },
           {
-            "id": "day3-lunch-ichiran",
+            "id": "day3-sup-surfing",
+            "time_period": "afternoon",
+            "type": "sightseeing",
+            "name": "SUP & Surfing — RUN'A WAVE",
+            "description": "Surf school on the Hibiki Sea at Hamatsu Coast. May brings calm conditions — ideal for SUP (stand-up paddleboard) or a first surf lesson. Welcoming to beginners and all fitness levels.",
+            "notes": [
+              "Phone: 093-281-2088",
+              "Website: runawave.com",
+              "Address: Uchiura, Okagaki-machi, Onga-gun, Fukuoka",
+              "Call ahead to book a session — pricing not published online, confirm by phone",
+              "May = calm shoulder-season swell, best window for beginner SUP and surf",
+              "Hamatsu Beach is a Ministry of Environment Top 100 Swimming Beach — great spot to cool off after the hike"
+            ],
+            "location": {
+              "name": "RUN'A WAVE Surf School — Hamatsu Coast",
+              "coordinates": [130.613, 33.861],
+              "address": "Uchiura, Okagaki-machi, Onga-gun, Fukuoka"
+            }
+          },
+          {
+            "id": "day3-ichiran",
             "time_period": "afternoon",
             "type": "food",
-            "name": "Ichiran Ramen HQ",
-            "description": "Original location with iconic solo booth dining",
+            "name": "Ichiran Ramen HQ (city alternative)",
+            "description": "If skipping or cutting the Okagaki day short, Ichiran's original location is right near Canal City Hakata — the iconic solo-booth tonkotsu experience worth doing at least once.",
             "notes": [
-              "Customize spice level (3+ for heat)",
-              "Order kaedama (extra noodles)"
+              "Customize: richness level, spice, garlic, scallion, chashu, noodle firmness",
+              "Order kaedama (extra noodles) when you get low",
+              "Can be combined with Canal City Ramen Stadium in the same afternoon"
             ],
             "location": {
               "name": "Ichiran Ramen Headquarters",
-              "coordinates": [
-                130.4084,
-                33.5915
-              ],
+              "coordinates": [130.4084, 33.5915],
               "address": "Near Canal City Hakata, Fukuoka"
             }
           },
@@ -161,43 +223,37 @@
             "id": "day3-canal-city",
             "time_period": "afternoon",
             "type": "food",
-            "name": "Canal City Hakata - Ramen Stadium",
-            "description": "8 regional ramen shops on 5th floor",
+            "name": "Canal City Hakata — Ramen Stadium (city alternative)",
+            "description": "8 regional ramen shops on the 5th floor of Canal City — good if you want to compare styles in one stop. The mall itself is worth wandering between bowls.",
             "notes": [
-              "Try different style (miso, shoyu)",
-              "Browse mall between tastings"
+              "Try a different style than Ichiran — miso, shoyu, or spicy tantanmen",
+              "Mini portions available at some stalls for sampling multiple shops",
+              "City alternative if weather cancels the Okagaki day trip"
             ],
             "location": {
               "name": "Canal City Hakata",
-              "coordinates": [
-                130.4075,
-                33.5898
-              ],
+              "coordinates": [130.4075, 33.5898],
               "address": "Canal City Hakata, Fukuoka"
             }
           },
           {
-            "id": "day3-naka-river-cruise",
-            "time_period": "afternoon",
-            "type": "sightseeing",
-            "name": "Naka River water bus cruise",
-            "description": "Take a 40–60 min water bus along the Naka River between ramen stops. Good views of Nakasu and the waterfront before the yatai stalls open in the evening.",
+            "id": "day3-return-fukuoka",
+            "time_period": "evening",
+            "type": "travel",
+            "name": "Return to Fukuoka by JR",
+            "description": "Head back to Hakata on the JR Kagoshima Main Line in time for the evening yatai stalls.",
             "notes": [
-              "Walk-up tickets at the dock near Hakata Port",
-              "Aim for 3–4 PM to avoid midday heat and arrive near Nakasu for evening yatai"
+              "~45–50 min back to Hakata Station, last train is late evening",
+              "Optional: stay for dinner in Okagaki instead — Sushi Yatai (fresh hakatamae sushi), Seaside Inn Hatsushiro (live squid + fugu), or Chanpon no Shoro (local soul food)"
             ],
-            "location": {
-              "name": "Naka River Cruise Dock",
-              "coordinates": [130.4186, 33.5858],
-              "address": "Hakata Port Area, Hakata-ku, Fukuoka 812-0031"
-            }
+            "location": null
           },
           {
             "id": "day3-yatai",
             "time_period": "evening",
             "type": "food",
             "name": "Yatai street food stalls",
-            "description": "Riverside food stalls in Nakasu or Tenjin area",
+            "description": "Riverside food stalls in Nakasu or Tenjin area — the classic Fukuoka send-off after a big active day.",
             "notes": [
               "~150 stalls open nightly from 6pm",
               "Sit shoulder-to-shoulder with locals",
@@ -206,10 +262,7 @@
             ],
             "location": {
               "name": "Nakasu Yatai District",
-              "coordinates": [
-                130.4086,
-                33.5945
-              ],
+              "coordinates": [130.4086, 33.5945],
               "address": "Nakasu, Hakata Ward, Fukuoka"
             }
           }
@@ -225,6 +278,23 @@
         ],
         "travel_day": true,
         "activities": [
+          {
+            "id": "day4-ohori-cycling",
+            "time_period": "morning",
+            "type": "sightseeing",
+            "name": "Ohori Park cycling loop",
+            "description": "Quick morning ride around the 2.7 km lake circuit before checkout. Flat, scenic, and crowd-free — a nice gentle contrast to yesterday's coastal ride.",
+            "notes": [
+              "Rentals at park entrance, ~¥1,000–1,500/hr, no booking needed",
+              "1–2 laps takes about 20–40 min — easy before a travel day",
+              "15-min walk or short taxi from Hilton Fukuoka Sea Hawk"
+            ],
+            "location": {
+              "name": "Ohori Park",
+              "coordinates": [130.4015, 33.5844],
+              "address": "1-2 Ohori Park, Chuo-ku, Fukuoka 810-0051"
+            }
+          },
           {
             "id": "day4-breakfast",
             "time_period": "morning",
