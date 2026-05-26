@@ -3,6 +3,11 @@
 All notable changes to this project will be documented in this file.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.3.2] - 2026-05-27
+
+### Fixed
+- **Photo upload on mobile** — removed `capture="environment"` from the photo file input so iOS/Android now shows the native sheet (Take Photo / Photo Library / Browse) instead of jumping straight to the camera; existing photos can now be selected from the library
+
 ## [1.3.1] - 2026-05-18
 
 ### Changed
