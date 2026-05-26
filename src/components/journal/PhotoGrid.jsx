@@ -8,7 +8,7 @@ export function PhotoGrid({ entityType, entityId }) {
   const { role } = useAuth()
   const [photos, setPhotos] = useState([])
   const [loading, setLoading] = useState(true)
-  const [uploading, setUploading] = useState(false)
+  const [batch, setBatch] = useState(null)
   const [uploadError, setUploadError] = useState(null)
   const [lightboxId, setLightboxId] = useState(null)
   const [online, setOnline] = useState(navigator.onLine)
@@ -31,25 +31,30 @@ export function PhotoGrid({ entityType, entityId }) {
   }, [role, entityType, entityId])
 
   const handleFileChange = async (e) => {
-    const file = e.target.files?.[0]
-    if (!file) return
+    const files = Array.from(e.target.files ?? [])
     e.target.value = ''
+    if (!files.length) return
     setUploadError(null)
-    setUploading(true)
-    try {
-      const { blob } = await resizeAndEncodeImage(file)
-      const form = new FormData()
-      form.append('file', blob, 'photo.jpg')
-      form.append('entity_type', entityType)
-      form.append('entity_id', entityId)
-      form.append('published', 'false')
-      const photo = await api.upload('/api/photos', form)
-      setPhotos(prev => [...prev, photo])
-    } catch (e) {
-      setUploadError(e.message || 'Upload failed. Try again.')
-    } finally {
-      setUploading(false)
+    let failed = 0
+    setBatch({ current: 0, total: files.length, failed: 0 })
+    for (let i = 0; i < files.length; i++) {
+      setBatch(b => ({ ...b, current: i + 1 }))
+      try {
+        const { blob } = await resizeAndEncodeImage(files[i])
+        const form = new FormData()
+        form.append('file', blob, 'photo.jpg')
+        form.append('entity_type', entityType)
+        form.append('entity_id', entityId)
+        form.append('published', 'false')
+        const photo = await api.upload('/api/photos', form)
+        setPhotos(prev => [...prev, photo])
+      } catch {
+        failed++
+        setBatch(b => ({ ...b, failed }))
+      }
     }
+    if (failed > 0) setUploadError(`${failed} of ${files.length} failed — try those again`)
+    setBatch(null)
   }
 
   const togglePublish = async (photo) => {
@@ -79,16 +84,16 @@ export function PhotoGrid({ entityType, entityId }) {
         </h4>
         <RequireRole role="traveler">
           <button
-            onClick={() => online && !uploading && inputRef.current?.click()}
-            disabled={uploading || !online}
+            onClick={() => online && !batch && inputRef.current?.click()}
+            disabled={!!batch || !online}
             className="text-xs uppercase tracking-wider text-link hover:text-ink transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
           >
-            {uploading ? 'Uploading…' : '+ Photo'}
+            {batch ? `Uploading ${batch.current} of ${batch.total}…` : '+ Photo'}
           </button>
         </RequireRole>
       </div>
 
-      <input ref={inputRef} type="file" accept="image/*" className="hidden" onChange={handleFileChange} />
+      <input ref={inputRef} type="file" accept="image/*" multiple className="hidden" onChange={handleFileChange} />
 
       {uploadError && <p className="text-torii text-xs mb-2">{uploadError}</p>}
       {!online && role === 'traveler' && <p className="text-muted text-xs mb-2">Offline — photo upload unavailable</p>}

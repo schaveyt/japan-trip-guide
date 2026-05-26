@@ -3,6 +3,11 @@
 All notable changes to this project will be documented in this file.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.3.3] - 2026-05-27
+
+### Added
+- **Batch photo upload** — `+ Photo` now accepts multiple selections at once; photos upload sequentially and appear in the grid as each one lands; button label shows `Uploading N of M…` progress; partial failures reported as `X of N failed — try those again`
+
 ## [1.3.2] - 2026-05-27
 
 ### Fixed
