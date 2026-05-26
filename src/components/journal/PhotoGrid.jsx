@@ -3,9 +3,12 @@ import { useAuth } from '../../auth/useAuth'
 import { RequireRole } from '../../auth/RequireRole'
 import { api } from '../../lib/api'
 import { resizeAndEncodeImage } from '../../lib/imageResize'
+import { useNavigate } from 'react-router'
+import exifr from 'exifr'
 
 export function PhotoGrid({ entityType, entityId }) {
   const { role } = useAuth()
+  const navigate = useNavigate()
   const [photos, setPhotos] = useState([])
   const [loading, setLoading] = useState(true)
   const [batch, setBatch] = useState(null)
@@ -40,12 +43,17 @@ export function PhotoGrid({ entityType, entityId }) {
     for (let i = 0; i < files.length; i++) {
       setBatch(b => ({ ...b, current: i + 1 }))
       try {
-        const { blob } = await resizeAndEncodeImage(files[i])
+        const [{ blob }, gps] = await Promise.all([
+          resizeAndEncodeImage(files[i]),
+          exifr.gps(files[i]).catch(() => null),
+        ])
         const form = new FormData()
         form.append('file', blob, 'photo.jpg')
         form.append('entity_type', entityType)
         form.append('entity_id', entityId)
         form.append('published', 'false')
+        if (gps?.latitude != null) form.append('lat', gps.latitude)
+        if (gps?.longitude != null) form.append('lng', gps.longitude)
         const photo = await api.upload('/api/photos', form)
         setPhotos(prev => [...prev, photo])
       } catch {
@@ -151,6 +159,14 @@ export function PhotoGrid({ entityType, entityId }) {
                 Delete
               </button>
             </RequireRole>
+            {lightboxPhoto.lat != null && (
+              <button
+                onClick={() => { setLightboxId(null); navigate('/map', { state: { focusPhotoId: lightboxPhoto.id, focusLat: lightboxPhoto.lat, focusLng: lightboxPhoto.lng } }) }}
+                className="text-xs uppercase tracking-wider px-3 py-1.5 border border-amber-400/60 text-amber-400"
+              >
+                📍 Map
+              </button>
+            )}
             <button onClick={() => setLightboxId(null)} className="text-xs uppercase tracking-wider px-3 py-1.5 border border-white/20 text-white/50">
               Close
             </button>
