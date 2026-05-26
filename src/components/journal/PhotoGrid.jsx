@@ -88,7 +88,7 @@ export function PhotoGrid({ entityType, entityId }) {
         </RequireRole>
       </div>
 
-      <input ref={inputRef} type="file" accept="image/*" capture="environment" className="hidden" onChange={handleFileChange} />
+      <input ref={inputRef} type="file" accept="image/*" className="hidden" onChange={handleFileChange} />
 
       {uploadError && <p className="text-torii text-xs mb-2">{uploadError}</p>}
       {!online && role === 'traveler' && <p className="text-muted text-xs mb-2">Offline — photo upload unavailable</p>}
