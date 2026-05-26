@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.4.0] - 2026-05-27
+
+### Added
+- **Photo ↔ Map integration** — two-way navigation between photos and the map
+- **GPS extraction on upload** — EXIF GPS coordinates are read from each photo before the canvas strips them (via `exifr`); `lat`/`lng` stored in D1 alongside every uploaded photo that carries GPS metadata
+- **Photo pins on map** — new "Photos" toggle in MapPage shows amber 📷 markers at each geotagged photo's exact location; clicking a pin shows a thumbnail popup with an "Open in Journal →" link back to the day
+- **Map link in photo lightbox** — when a photo has GPS coordinates, a `📍 Map` button appears in the lightbox footer; tapping it navigates to the map, flies to that exact location, and opens the photo's pin popup automatically
+- **`GET /api/photos/map-pins` endpoint** — returns lightweight `[{ id, lat, lng, entity_type, entity_id }]` for all geotagged photos without loading photo bytes; auth-gated
+
+### Changed
+- `POST /api/photos` now accepts optional `lat`/`lng` form fields and stores them in D1
+- `GET /api/photos` response now includes `lat`/`lng` per photo
+- `PATCH /api/photos/:id` now accepts optional `lat`/`lng` updates
+
 ## [1.3.3] - 2026-05-27
 
 ### Added

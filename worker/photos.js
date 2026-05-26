@@ -6,9 +6,19 @@ const MAX_FILE_BYTES = 8 * 1024 * 1024
 export async function handlePhotos(req, env, url) {
   const session = await getSession(req, env)
   const pathParts = url.pathname.split('/').filter(Boolean)
-  // pathParts: ['api', 'photos'] | ['api', 'photos', ':id'] | ['api', 'photos', ':id', 'bytes']
+  // pathParts: ['api', 'photos'] | ['api', 'photos', 'map-pins'] | ['api', 'photos', ':id'] | ['api', 'photos', ':id', 'bytes']
   const photoId = pathParts[2]
   const subResource = pathParts[3]
+
+  // GET /api/photos/map-pins — all geotagged photos (id, lat, lng, entity_type, entity_id)
+  if (req.method === 'GET' && photoId === 'map-pins') {
+    if (!session) return unauthorized()
+    const publishClause = session.role === 'traveler' ? '' : 'AND published = 1'
+    const { results } = await env.DB.prepare(
+      `SELECT id, lat, lng, entity_type, entity_id FROM photos WHERE lat IS NOT NULL ${publishClause} ORDER BY created_at ASC`
+    ).all()
+    return ok({ pins: results })
+  }
 
   // GET /api/photos?entity_type=&entity_id=
   if (req.method === 'GET' && !photoId) {
@@ -18,7 +28,7 @@ export async function handlePhotos(req, env, url) {
     if (!entityType || !entityId) return badRequest('entity_type and entity_id required')
     const publishClause = session.role === 'traveler' ? '' : 'AND published = 1'
     const { results } = await env.DB.prepare(
-      `SELECT id, entity_type, entity_id, mime, width, height, bytes, caption, author, published, created_at
+      `SELECT id, entity_type, entity_id, mime, width, height, bytes, caption, author, published, lat, lng, created_at
        FROM photos WHERE entity_type = ? AND entity_id = ? ${publishClause} ORDER BY created_at ASC`
     ).bind(entityType, entityId).all()
     return ok({ photos: results })
@@ -54,6 +64,8 @@ export async function handlePhotos(req, env, url) {
     const caption = formData.get('caption') || null
     const published = formData.get('published') === 'true' ? 1 : 0
     const author = req.headers.get('X-Author') || 'traveler'
+    const lat = parseCoord(formData.get('lat'))
+    const lng = parseCoord(formData.get('lng'))
     if (!entityType || !entityId) return badRequest('entity_type and entity_id required')
     const id = crypto.randomUUID()
     const r2Key = `photos/${id}.jpg`
@@ -66,13 +78,13 @@ export async function handlePhotos(req, env, url) {
     const now = Math.floor(Date.now() / 1000)
     try {
       await env.DB.prepare(
-        'INSERT INTO photos (id, entity_type, entity_id, r2_key, mime, bytes, caption, author, published, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
-      ).bind(id, entityType, entityId, r2Key, 'image/jpeg', file.size, caption, author, published, now).run()
+        'INSERT INTO photos (id, entity_type, entity_id, r2_key, mime, bytes, caption, author, published, lat, lng, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+      ).bind(id, entityType, entityId, r2Key, 'image/jpeg', file.size, caption, author, published, lat, lng, now).run()
     } catch {
       await env.PHOTOS.delete(r2Key).catch(() => {})
       return serverError('Failed to save photo record')
     }
-    return created({ id, entity_type: entityType, entity_id: entityId, mime: 'image/jpeg', bytes: file.size, caption, author, published, created_at: now })
+    return created({ id, entity_type: entityType, entity_id: entityId, mime: 'image/jpeg', bytes: file.size, caption, author, published, lat, lng, created_at: now })
   }
 
   // PATCH /api/photos/:id
@@ -84,9 +96,11 @@ export async function handlePhotos(req, env, url) {
     if (!existing) return notFound('Photo not found')
     const newCaption = body.caption !== undefined ? body.caption : existing.caption
     const newPublished = body.published !== undefined ? (body.published ? 1 : 0) : existing.published
-    await env.DB.prepare('UPDATE photos SET caption = ?, published = ? WHERE id = ?')
-      .bind(newCaption, newPublished, photoId).run()
-    return ok({ ...existing, caption: newCaption, published: newPublished })
+    const newLat = body.lat !== undefined ? (body.lat === null ? null : Number(body.lat)) : existing.lat
+    const newLng = body.lng !== undefined ? (body.lng === null ? null : Number(body.lng)) : existing.lng
+    await env.DB.prepare('UPDATE photos SET caption = ?, published = ?, lat = ?, lng = ? WHERE id = ?')
+      .bind(newCaption, newPublished, newLat, newLng, photoId).run()
+    return ok({ ...existing, caption: newCaption, published: newPublished, lat: newLat, lng: newLng })
   }
 
   // DELETE /api/photos/:id
@@ -100,4 +114,10 @@ export async function handlePhotos(req, env, url) {
   }
 
   return new Response('Method not allowed', { status: 405 })
+}
+
+function parseCoord(value) {
+  if (value === null || value === undefined || value === '') return null
+  const n = Number(value)
+  return isFinite(n) ? n : null
 }

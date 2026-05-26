@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useLocation, Link } from 'react-router'
 import TripMap from '../components/map/TripMap'
 import DayFilterBar from '../components/map/DayFilterBar'
@@ -6,22 +6,42 @@ import itinerary from '../data/itinerary.json'
 import activitiesData from '../data/activities.json'
 import { useAuth } from '../auth/useAuth'
 import { useHotels } from '../hooks/useHotels'
+import { api } from '../lib/api'
 
 export default function MapPage() {
   const { trip } = itinerary
   const location = useLocation()
   const { role } = useAuth()
   const hotels = useHotels()
+  const focusState = location.state ?? {}
   const daysWithLocations = trip.days.filter(d =>
     d.activities.some(a => a.location)
   )
   const [visibleDays, setVisibleDays] = useState(() => {
-    const passedDay = location.state?.activeDayNumber
+    const passedDay = focusState.activeDayNumber
     if (passedDay && daysWithLocations.some(d => d.day_number === passedDay)) {
       return new Set([passedDay])
     }
     return new Set(daysWithLocations.map(d => d.day_number))
   })
+
+  const [photoPins, setPhotoPins] = useState([])
+  const [showPhotos, setShowPhotos] = useState(!!focusState.focusPhotoId)
+  const [focusPhotoId, setFocusPhotoId] = useState(focusState.focusPhotoId ?? null)
+
+  useEffect(() => {
+    if (!role) return
+    api.get('/api/photos/map-pins')
+      .then(data => setPhotoPins(data.pins))
+      .catch(() => {})
+  }, [role])
+
+  // Clear the focus after TripMap has had a chance to fly there
+  useEffect(() => {
+    if (!focusPhotoId) return
+    const t = setTimeout(() => setFocusPhotoId(null), 2000)
+    return () => clearTimeout(t)
+  }, [focusPhotoId])
 
   const toggleDay = (dayNum) => {
     setVisibleDays(prev => {
@@ -81,6 +101,24 @@ export default function MapPage() {
             </button>
           </div>
         )}
+        {role !== null && (
+          <div className="flex items-center gap-3">
+            <span className="text-xs uppercase tracking-wider text-muted">
+              Photos {photoPins.length > 0 && <span className="text-ink/40">· {photoPins.length}</span>}
+            </span>
+            <button
+              onClick={() => setShowPhotos(prev => !prev)}
+              disabled={photoPins.length === 0}
+              className={`px-3 py-1.5 text-xs uppercase tracking-wider font-medium rounded-sm transition-colors disabled:opacity-30 disabled:cursor-not-allowed ${
+                showPhotos
+                  ? 'bg-[#D97706] text-white'
+                  : 'bg-transparent text-muted border border-ink/20'
+              }`}
+            >
+              {showPhotos ? 'Visible' : 'Hidden'}
+            </button>
+          </div>
+        )}
       </div>
       <div className="flex-1">
         <TripMap
@@ -90,6 +128,9 @@ export default function MapPage() {
           showActivities={showActivities}
           hotels={hotels}
           showHotels={showHotels}
+          photoPins={photoPins}
+          showPhotos={showPhotos}
+          focusPhotoId={focusPhotoId}
         />
       </div>
     </div>
