@@ -33,3 +33,9 @@ public/images/source-*.jpg
 
 # One-off conversion scripts (not part of build)
 scripts/
+
+# Wrangler local dev state
+.wrangler/
+
+# Scratch / temp files
+tmp/
