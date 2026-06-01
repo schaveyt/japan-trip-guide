@@ -108,8 +108,7 @@ export default function MapPage() {
             </span>
             <button
               onClick={() => setShowPhotos(prev => !prev)}
-              disabled={photoPins.length === 0}
-              className={`px-3 py-1.5 text-xs uppercase tracking-wider font-medium rounded-sm transition-colors disabled:opacity-30 disabled:cursor-not-allowed ${
+              className={`px-3 py-1.5 text-xs uppercase tracking-wider font-medium rounded-sm transition-colors ${
                 showPhotos
                   ? 'bg-[#D97706] text-white'
                   : 'bg-transparent text-muted border border-ink/20'
